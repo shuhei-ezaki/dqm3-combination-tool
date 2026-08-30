@@ -102,8 +102,10 @@ routes/
 - アルテマ ランク別一覧: `https://altema.jp/dqm3/rank/3` （3=A、2=S、4=B …）
 - GAME攻略BOX 個別ページ: `https://gamekoryakubox.com/dqm3/rank_g/g054/` のようにランク別ディレクトリ配下
 - ゲームエイト / ゲームウィズ の個別モンスターページ
+- gameludens（多段の配合チェーンが1ページに書かれていて読みやすいが、誤りが確認されている。単独ソースなら他サイトでクロスチェックすること）
+- hyperwiki.jp/dqm3/monster/（配合レシピが構造化されている）
 
-regamers.net と kyokugen.info は robots で自動取得不可。
+regamers.net と kyokugen.info は robots で自動取得不可。アルテマは2026-08-30時点で自動取得（WebFetch）が403で弾かれる — 取得できるようになったら最優先の正としてクロスチェックし直す。優先度: ゲームウィズ ＞ アルテマ（復活時）／hyperwiki／ゲームエイト ＞ gameludens（単独では採用しない）。
 
 ## 確定済みの主要ルート
 
