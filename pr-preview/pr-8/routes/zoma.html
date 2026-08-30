@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ゾーマ 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>ゾーマ <em>Xランク</em></h1>
+    <p class="lede">4体配合。DQ3 のラスボス。枝ごとにタブを分けて段階的に展開しています。タブでルートを切り替えます。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+    <button role="tab" aria-selected="false" data-target="kinghydra">キングヒドラ</button>
+    <button role="tab" aria-selected="false" data-target="sidoh">シドー</button>
+    <button role="tab" aria-selected="false" data-target="baramoszombie">バラモスゾンビ</button>
+    <button role="tab" aria-selected="false" data-target="nizzelpha">邪神ニズゼルファ</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">ゾーマは4体配合。祖父母4体を「キングヒドラ×シドー」「バラモスゾンビ×邪神ニズゼルファ」の2ペアで両親にすると、孫としてゾーマが生まれます。両親の系統は問いません。4体とも通常配合では作れない特殊配合モンスターです。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  KH["キングヒドラ(ドラゴン系・Aランク)<br/>キングヒドラタブ参照"] --> PA["親A(系統自由)"]
+  SD["シドー(???系・Sランク)<br/>シドータブ参照"] --> PA
+  BZ["バラモスゾンビ(ゾンビ系・Sランク)<br/>バラモスゾンビタブ参照"] --> PB["親B(系統自由)"]
+  NZ["邪神ニズゼルファ(???系・Sランク)<br/>邪神ニズゼルファタブ参照"] --> PB
+  PA --> ZO["ゾーマ(???系・Xランク)"]
+  PB --> ZO
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class ZO goal
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <div class="rules">
+    <strong>読み方のルール</strong>
+    <ul>
+      <li>通常配合はGランク～Bランクの各36通り（系統ペア）のみ。Aランク以上は必ず特殊配合。</li>
+      <li>青ノートの「通常配合：X系×Y系（Rランク以上）」は、親2体がその系統で、どちらかが指定ランク以上であれば生まれる、という意味。</li>
+      <li>ダークドレアム図に既出のモンスター（竜王・ボストロール・キングリザードなど）は「ダークドレアム図参照」として重複記載しない。</li>
+    </ul>
+  </div>
+
+  <div class="todo">
+    <strong>進捗</strong>
+    4枝すべてにタブを作成済み。ただし邪神ニズゼルファ枝は一部（シャドウパンサー・メルトア・ゴールデンスライム側）がまだ特殊配合止まりで、末端までは未展開（タブ内のTODO参照）。
+  </div>
+
+  <div class="todo">
+    <strong>タマゴ限定のボトルネックを新たに2箇所確認</strong>
+    ・バラモスゾンビ枝：「キラーシャドー＝ドルマージュ×シャドー」「ドルマージュ＝マネマネ×エビルスピリッツ」で<strong>マネマネが銀タマゴ限定</strong>（配合・スカウト不可）。<br>
+    ・邪神ニズゼルファ枝：「守護者ラズバーン＝モヒカント×キャットリベリオ」「キャットリベリオ＝ダークペルシャ×カンダタ」で<strong>カンダタが金タマゴ限定</strong>（配合・スカウト不可）。<br>
+    いずれも代替ルートを探しましたが見つからず回避不可能です。ダークドレアム図の2箇所（スカイドラゴン／ピサロのてさき）とは別の、ゾーマ独自のボトルネックです。全枝の展開が終わり次第、このタブに正式なまとめを追加します。
+  </div>
+
+  <div class="rules">
+    <strong>出典</strong>
+    <ul>
+      <li>ゲームウィズ DQM3（系統・ランク・配合。優先ソース）</li>
+      <li>hyperWiki DQM3 ／ ゲームエイト DQM3</li>
+      <li>gameludens（多段の配合チェーンが読みやすいが誤りを確認済み。単独では採用しない）</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="kinghydra">
+  <h2>キングヒドラ（ドラゴン系・Aランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。通常配合では作れず特殊配合のみ。この枝は末端（通常配合／ダークドレアム図参照）まで分解済み。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  YO["やまたのおろち(ドラゴン系・Bランク)"] --> KH["キングヒドラ(ドラゴン系・Aランク)"]
+  CL["クラーゴン(自然系・Aランク)"] --> KH
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class KH goal
+  </pre></div>
+
+  <h3>やまたのおろち（ドラゴン系・Bランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GL["ガメゴンロード(ドラゴン系・Cランク)"] --> YO["やまたのおろち(ドラゴン系・Bランク)"]
+  DL["ダースリカント(Bランク)<br/>通常配合:魔獣系×ゾンビ系(B以上)"] --> YO
+  GM["ガメゴン(Eランク)<br/>通常配合:ドラゴン系×スライム系(E以上)"] --> GL
+  DG["だいおうガマ(Cランク)<br/>ラーミアタブ参照"] --> GL
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DL,GM base
+  </pre></div>
+
+  <h3>クラーゴン（自然系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SI["ソードイド(Bランク)<br/>ラーミアタブ参照"] --> CL["クラーゴン(自然系・Aランク)"]
+  DI["だいおうイカ(自然系・Cランク)"] --> CL
+  TM["タコメット(Eランク)<br/>通常配合:自然系×悪魔系(E以上)"] --> DI
+  KL["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> DI
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class TM,KL base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    だいおうガマ・ソードイドはダークドレアム図のラーミアタブで既に末端（通常配合・スカウト）まで分解済みのため、この図では再掲していません。
+  </div>
+</section>
+
+<section class="panel" id="sidoh">
+  <h2>シドー（???系・Sランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。竜王×ハーゴンの特殊配合。竜王はダークドレアム図で達成済みのためここでは参照のみ。ハーゴン側は4体配合がさらに深く、末端（通常配合／スカウト）まで分解済み。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  RY["竜王(ドラゴン系・Sランク)<br/>竜神王タブ参照・達成済"] --> SD["シドー(???系・Sランク)"]
+  HG["ハーゴン(???系・Sランク)"] --> SD
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class SD goal
+  </pre></div>
+
+  <h3>ハーゴン（???系・Sランク）＝ 4体配合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AT["アトラス(悪魔系・Aランク)"] --> PA["親A(系統自由)"]
+  BR["ベリアル(悪魔系・Aランク)"] --> PA
+  AS["あくましんかん(悪魔系・Bランク)"] --> PB["親B(系統自由)"]
+  BZ["バズズ(悪魔系・Aランク)"] --> PB
+  PA --> HG["ハーゴン(???系・Sランク)"]
+  PB --> HG
+  </pre></div>
+
+  <h3>アトラス（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GT["ギガンテス(Bランク)<br/>通常配合:悪魔系×自然系(B以上)"] --> AT["アトラス(悪魔系・Aランク)"]
+  TB["トロルボンバー(Bランク)<br/>デスタムーアタブ参照"] --> AT
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class GT base
+  </pre></div>
+
+  <h3>ベリアル（悪魔系・Aランク)</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AD["アークデーモン(Bランク)<br/>通常配合:悪魔系×ドラゴン系(B以上)"] --> BR["ベリアル(悪魔系・Aランク)"]
+  BF["バッファロン(魔獣系・Bランク)"] --> BR
+  AV["アバランチャー(魔獣系・Cランク)"] --> BF
+  BO["ブラッドオックス(Bランク)<br/>通常配合:自然系×魔獣系(B以上)"] --> BF
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class AD,BO base
+  </pre></div>
+
+  <h3>アバランチャー（魔獣系・Cランク）＝ オークキング × ソルジャーブル</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OK["オークキング(魔獣系・Cランク)"] --> AV["アバランチャー(魔獣系・Cランク)"]
+  SB["ソルジャーブル(魔獣系・Dランク)"] --> AV
+  OR["オーク(Fランク)<br/>通常配合:魔獣系×自然系(F以上)"] --> OK
+  BG["ベンガル(Dランク)<br/>通常配合:魔獣系×スライム系(D以上)"] --> OK
+  AU["あばれうしどり(自然系・Fランク)"] --> SB
+  LZ["リザードマン(Eランク)<br/>通常配合:ドラゴン系×悪魔系(E以上)<br/>スカウト:常夜の要塞など"] --> SB
+  ON["おおにわとり(Gランク)<br/>スカウト:人間界(全季節・全天候)"] --> AU
+  AK["あばれこまいぬ(Fランク)<br/>通常配合:魔獣系×物質系(F以上)<br/>スカウト:煉獄峠初級(冬)"] --> AU
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class OR,BG,LZ,ON,AK base
+  </pre></div>
+
+  <h3>あくましんかん（悪魔系・Bランク）／バズズ（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MT["まおうのつかい(Bランク)<br/>通常配合:ゾンビ系×悪魔系(B以上)"] --> AS["あくましんかん(悪魔系・Bランク)"]
+  AM["アークマージ(Bランク)<br/>通常配合:悪魔系×スライム系(B以上)"] --> AS
+  GS["ギャスモン(物質系・Bランク)"] --> BZ["バズズ(悪魔系・Aランク)"]
+  SV["シルバーデビル(Dランク)<br/>通常配合:悪魔系×魔獣系(D以上)"] --> BZ
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MT,AM,SV base
+  </pre></div>
+
+  <h3>ギャスモン（物質系・Bランク）＝ 4体配合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  FL["フレイム(Dランク)<br/>通常配合:物質系×ドラゴン系(D以上)"] --> PA2["親A(系統自由)"]
+  BL["ブリザード(Dランク)<br/>通常配合:物質系×ゾンビ系(D以上)"] --> PA2
+  ES["エビルスピリッツ(Dランク)<br/>通常配合:ゾンビ系×悪魔系(D以上)"] --> PB2["親B(系統自由)"]
+  JT["じごくのたまねぎ(Dランク)<br/>通常配合:自然系×スライム系(D以上)"] --> PB2
+  PA2 --> GS["ギャスモン(物質系・Bランク)"]
+  PB2 --> GS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class FL,BL,ES,JT base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    ギャスモンの4体配合はどの2体×2体でペアを組むか出典に明記がなかったため、4体配合の一般原則（両親の系統は問わない）どおり「親A・親B自由」として記載。トロルボンバーはダークドレアム図のデスタムーアタブで既に末端まで分解済みのため再掲していません。
+  </div>
+</section>
+
+<section class="panel" id="baramoszombie">
+  <h2>バラモスゾンビ（ゾンビ系・Sランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。バラモス×スカルゴンの特殊配合。バラモス側の末端に<strong>銀タマゴ限定（マネマネ）</strong>の回避不能なボトルネックがあります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BR["バラモス(???系・Aランク)"] --> BZ["バラモスゾンビ(ゾンビ系・Sランク)"]
+  SG["スカルゴン(ゾンビ系・Bランク)"] --> BZ
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class BZ goal
+  </pre></div>
+
+  <h3>バラモス（???系・Aランク）＝ まおうのかげ × ボストロール</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MK["まおうのかげ(ゾンビ系・Aランク)"] --> BR["バラモス(???系・Aランク)"]
+  BS["ボストロール(Dランク)<br/>デスタムーアタブ参照"] --> BR
+  </pre></div>
+
+  <h3>まおうのかげ（ゾンビ系・Aランク）＝ まおうのつかい × キラーシャドー</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MT["まおうのつかい(Bランク)<br/>通常配合:ゾンビ系×悪魔系(B以上)"] --> MK["まおうのかげ(ゾンビ系・Aランク)"]
+  KS["キラーシャドー(ゾンビ系・Bランク)"] --> MK
+  DM["ドルマージュ(ゾンビ系・Cランク)"] --> KS
+  SH["シャドー(Fランク)<br/>スカウト:煉獄峠・流神殿・鉄鋼砦・煉獄洞・炎の神殿・竜の首(夏)"] --> KS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MT,SH base
+  </pre></div>
+
+  <h3>ドルマージュ（ゾンビ系・Cランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MN["マネマネ(Eランク)<br/>銀タマゴ限定・配合/スカウト不可"] --> DM["ドルマージュ(ゾンビ系・Cランク)"]
+  ES["エビルスピリッツ(Dランク)<br/>通常配合:ゾンビ系×悪魔系(D以上)"] --> DM
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MN egg
+  class ES base
+  </pre></div>
+
+  <h3>スカルゴン（ゾンビ系・Bランク）＝ ドラゴンコープス × ボーンプリズナー</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DC["ドラゴンコープス(Bランク)<br/>通常配合:ゾンビ系×ドラゴン系(B以上)"] --> SG["スカルゴン(ゾンビ系・Bランク)"]
+  BP["ボーンプリズナー(ゾンビ系・Cランク)"] --> SG
+  SD["しのどれい(Eランク)<br/>神さまタブ参照"] --> BP
+  PZ["ポイズンゾンビ(Dランク)<br/>スカウト:覇王城上級(春/秋/冬・赤い月)/煉獄峠上級(春)"] --> BP
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DC,PZ base
+  </pre></div>
+
+  <div class="todo">
+    <strong>タマゴ限定のボトルネック</strong>
+    キラーシャドーの配合ルートは「ドルマージュ×シャドー」の1通りのみで、ドルマージュは「マネマネ×エビルスピリッツ」の1通りのみ。マネマネは銀タマゴからのみ入手可能（配合・スカウト不可）で、代替ルートは見つかりませんでした。CLAUDE.md に記載の「ドルマージュ→マネマネの枝は不要」はムドー側（ホラービーストで回避可能）の話で、こちらのバラモス側には回避先がありません。
+  </div>
+</section>
+
+<section class="panel" id="nizzelpha">
+  <h2>邪神ニズゼルファ（???系・Sランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。邪神の子×冥獣王ネルゲルの特殊配合で、4本の中で最も深く広いツリー。<strong>金タマゴ限定（カンダタ）</strong>のボトルネックあり。一部（シャドウパンサー・メルトア・ゴールデンスライム側）は特殊配合止まりで、末端までの分解は次PRに続きます。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  JC["邪神の子(悪魔系・Sランク)"] --> NZ["邪神ニズゼルファ(???系・Sランク)"]
+  NG["冥獣王ネルゲル(???系・Sランク)"] --> NZ
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class NZ goal
+  </pre></div>
+
+  <h3>邪神の子（悪魔系・Sランク）＝ 大魔王ウルノーガ × ワルぼう</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  UN["大魔王ウルノーガ(???系・Sランク)"] --> JC["邪神の子(悪魔系・Sランク)"]
+  WB["ワルぼう(???系・Sランク)"] --> JC
+  </pre></div>
+
+  <h3>大魔王ウルノーガ（???系・Sランク）＝ 魔軍司令ホメロス × リーズレット</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  HM["魔軍司令ホメロス(???系・Sランク)"] --> UN["大魔王ウルノーガ(???系・Sランク)"]
+  LR["リーズレット(???系・Aランク)"] --> UN
+  </pre></div>
+
+  <h3>魔軍司令ホメロス（???系・Sランク）／リーズレット（???系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GY["ギュメイ将軍(悪魔系・Aランク)"] --> HM["魔軍司令ホメロス(???系・Sランク)"]
+  HD["ハデスナイト(Bランク)<br/>通常配合:ドラゴン系×ゾンビ系(B以上)"] --> HM
+  SP["シャドウパンサー(魔獣系・Bランク)"] --> GY
+  ST["心眼たぬき(魔獣系・Aランク)<br/>スカウト:精霊樹の森(全季節・全天候)"] --> GY
+  ML["メルトア(ゾンビ系・Bランク)"] --> LR["リーズレット(???系・Aランク)"]
+  SH["スノーホムンクルス(Bランク)<br/>通常配合:物質系×自然系(B以上)"] --> LR
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class HD,ST,SH base
+  </pre></div>
+
+  <h3>ワルぼう（???系・Sランク）＝ グランスライム × ロイヤルブルーム</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GS2["グランスライム(スライム系・Sランク)"] --> WB["ワルぼう(???系・Sランク)"]
+  RB["ロイヤルブルーム(Sランク)<br/>ラーミアタブ参照"] --> WB
+  MK["メタルキング(Bランク)<br/>神さまタブ参照"] --> GS2
+  GG["ゴールデンスライム(スライム系・Aランク)"] --> GS2
+  </pre></div>
+
+  <h3>堕天使エルギオス（???系・Sランク）＝ 4体配合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  YB["闇竜バルボロス(Sランク)<br/>しんりゅうタブ参照・達成済"] --> PA3["親A(系統自由)"]
+  GY2["ギュメイ将軍(悪魔系・Aランク)<br/>上の図参照"] --> PA3
+  GN["ゲルニック将軍(悪魔系・Aランク)"] --> PB3["親B(系統自由)"]
+  GR["ゴレオン将軍(悪魔系・Aランク)"] --> PB3
+  PA3 --> EG["堕天使エルギオス(???系・Sランク)"]
+  PB3 --> EG
+  </pre></div>
+
+  <h3>ゲルニック将軍・ゴレオン将軍（いずれも悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AM2["アークマージ(Bランク)<br/>通常配合:悪魔系×スライム系(B以上)"] --> GN["ゲルニック将軍(悪魔系・Aランク)"]
+  RC["ロックちょう(Bランク)<br/>通常配合:自然系×物質系(B以上)"] --> GN
+  MH["モヒカント(Bランク)<br/>通常配合:魔獣系×物質系(B以上)"] --> GR["ゴレオン将軍(悪魔系・Aランク)"]
+  TM2["てっきゅうまじん(Cランク)<br/>通常配合:悪魔系×物質系(C以上)"] --> GR
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class AM2,RC,MH,TM2 base
+  </pre></div>
+
+  <h3>冥獣王ネルゲル（???系・Sランク）＝ 堕天使エルギオス × 守護者ラズバーン</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  EG2["堕天使エルギオス(???系・Sランク)<br/>上の図参照"] --> NG2["冥獣王ネルゲル(???系・Sランク)"]
+  RZ["守護者ラズバーン(???系・Sランク)"] --> NG2
+  </pre></div>
+
+  <h3>守護者ラズバーン（???系・Sランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MH2["モヒカント(Bランク)<br/>通常配合:魔獣系×物質系(B以上)"] --> RZ2["守護者ラズバーン(???系・Sランク)"]
+  CR["キャットリベリオ(魔獣系・Aランク)"] --> RZ2
+  DP2["ダークペルシャ(Bランク)<br/>通常配合:魔獣系×スライム系(B以上)"] --> CR
+  KD2["カンダタ(Cランク)<br/>金タマゴ限定・配合/スカウト不可"] --> CR
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class MH2,DP2 base
+  class KD2 egg
+  </pre></div>
+
+  <div class="todo">
+    <strong>次PRで展開する枝</strong>
+    ・シャドウパンサー(魔獣系B) ＝ 4体配合［キラーパンサー×2 ＋ シャドウベビー ＋ ブラバニクイーン］<br>
+    ・メルトア(ゾンビ系B) ＝ メイデンドール × ギャスモン（ギャスモンはシドータブで展開済み）<br>
+    ・ゴールデンスライム(スライム系A) ＝ メタルキング(神さまタブ参照) × ゴールデンゴーレム（4体配合［ようがんまじん＋ひょうがまじん＋シーゴーレム＋ストーンマン(竜神王タブ参照)］）
+  </div>
+
+  <div class="todo">
+    <strong>タマゴ限定のボトルネック</strong>
+    守護者ラズバーンの配合ルートは「モヒカント×キャットリベリオ」、キャットリベリオは「ダークペルシャ×カンダタ」の1通りのみ。カンダタは金タマゴからのみ入手可能（配合・スカウト不可）で、代替ルートは見つかりませんでした。バラモスゾンビ枝のマネマネ（銀タマゴ）とは別の、ゾーマ2つ目のタマゴ限定ボトルネックです。
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  ゾーマ 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: "base",
+    themeVariables: {
+      fontFamily: '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif',
+      fontSize: "13px",
+      primaryColor: "#ffffff",
+      primaryTextColor: "#14161c",
+      primaryBorderColor: "#8a8578",
+      lineColor: "#6f6a5c"
+    },
+    flowchart: { nodeSpacing: 55, rankSpacing: 70, curve: "basis", useMaxWidth: false }
+  });
+
+  const rendered = new Set();
+  async function renderPanel(id) {
+    if (rendered.has(id)) return;
+    const nodes = document.querySelectorAll(`#${id} .mermaid`);
+    if (nodes.length) await mermaid.run({ nodes });
+    rendered.add(id);
+  }
+
+  const tabs = document.querySelectorAll("#tabs button");
+  tabs.forEach(btn => {
+    btn.addEventListener("click", async () => {
+      tabs.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
+      document.querySelectorAll(".panel").forEach(p => {
+        p.dataset.active = String(p.id === btn.dataset.target);
+      });
+      await renderPanel(btn.dataset.target);
+    });
+  });
+
+  renderPanel("overview");
+</script>
+
+</body>
+</html>
