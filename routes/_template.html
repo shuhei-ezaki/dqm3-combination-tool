@@ -26,6 +26,11 @@
       classDef egg  fill:#ffd6d6,stroke:#d96a6a,color:#000   … タマゴ限定（赤）
       （白＝特殊配合はデフォルト。classDef 不要）
   - 図が大きいときは <h3> ＋ .chart を複数置いて枝ごとに分割する。
+  - 他タブ／他ページに既出のモンスターは重複記載せず「◯◯タブ参照」とし、
+    その場でジャンプできるよう Mermaid の click 構文でリンクを張る:
+      同一ページ内の別タブへ:   click NODEID href "#タブID" "◯◯タブへ"
+      別ページ（routes/内）へ: click NODEID href "darkdream.html#ryujinou" "竜神王タブへ"
+    タブIDは <nav class="tabs"> の data-target と一致させる。
   - できたら index.html の「公開中のルート」にカードを1枚追加し、
     <h2> の <span class="count"> を +1 する。
 -->
@@ -54,11 +59,12 @@
   <div class="chart"><pre class="mermaid">
 flowchart TD
   A["素材A(◯ランク)<br/>通常配合:X系×Y系(◯以上)"] --> GOAL["◯◯◯(◯ランク)"]
-  B["素材B(◯ランク)"] --> GOAL
+  B["素材B(◯ランク)<br/>竜神王タブ参照"] --> GOAL
   classDef goal fill:#ffd700,stroke:#c9a000,color:#000
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class GOAL goal
   class A base
+  click B href "darkdream.html#ryujinou" "竜神王タブへ"
   </pre></div>
 
   <div class="legend">
@@ -76,42 +82,7 @@ flowchart TD
   ◯◯◯ 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
 </footer>
 
-<script>
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "base",
-    themeVariables: {
-      fontFamily: '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif',
-      fontSize: "13px",
-      primaryColor: "#ffffff",
-      primaryTextColor: "#14161c",
-      primaryBorderColor: "#8a8578",
-      lineColor: "#6f6a5c"
-    },
-    flowchart: { nodeSpacing: 55, rankSpacing: 70, curve: "basis", useMaxWidth: false }
-  });
-
-  const rendered = new Set();
-  async function renderPanel(id) {
-    if (rendered.has(id)) return;
-    const nodes = document.querySelectorAll(`#${id} .mermaid`);
-    if (nodes.length) await mermaid.run({ nodes });
-    rendered.add(id);
-  }
-
-  const tabs = document.querySelectorAll("#tabs button");
-  tabs.forEach(btn => {
-    btn.addEventListener("click", async () => {
-      tabs.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
-      document.querySelectorAll(".panel").forEach(p => {
-        p.dataset.active = String(p.id === btn.dataset.target);
-      });
-      await renderPanel(btn.dataset.target);
-    });
-  });
-
-  renderPanel("overview");
-</script>
+<script src="../assets/tabs.js"></script>
 
 </body>
 </html>

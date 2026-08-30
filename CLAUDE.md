@@ -9,13 +9,15 @@
 ```
 index.html            … 入口ページ（公開中／作成予定のルートをカード一覧）
 assets/theme.css      … 全ページ共通のテーマCSS
+assets/tabs.js        … 全ページ共通のタブ切り替え・Mermaid初期化スクリプト
 routes/
   _template.html      … 新規ルートページの雛形
   darkdream.html      … ダークドレアム（既存）
+  zoma.html           … ゾーマ（既存）
   <スラッグ>.html      … 目標モンスター1体につき1ファイル
 ```
 
-- 各ページは単一 HTML ＋ `assets/theme.css`。Mermaid 10 と Google Fonts を CDN から読み込む以外は依存なし。ブラウザで直接開ける（`file://` で可）。
+- 各ページは単一 HTML ＋ `assets/theme.css` ＋ `assets/tabs.js`。Mermaid 10 と Google Fonts を CDN から読み込む以外は依存なし。ブラウザで直接開ける（`file://` で可）。
 - 目視確認は `npx serve .` などか、ブラウザで直接開く（Mermaid はターミナルではレンダリングできない）。
 
 ### デザインテーマ「配合系譜図」
@@ -68,9 +70,14 @@ routes/
 
 ### 実装メモ
 
-- タブは `data-target` と `.panel` の id を対応させ、初回表示時に `mermaid.run()` する遅延レンダリング。
+- タブ切り替え・Mermaid初期化・遅延レンダリングは `assets/tabs.js` に共通化。各 HTML は `<script src="../assets/tabs.js"></script>` を読み込むだけで、独自の `<script>` は書かない。
+- タブは `data-target` と `.panel` の id を対応させる。URL の `#タブID` で直接そのタブを開ける（`activateTab()` が初期表示時とhashchangeの両方で呼ばれる）。
 - Mermaid のノードIDは1つの `flowchart` 内で一意であればよい（図をまたいで重複してよい）。
 - ノード内改行は `<br/>`。括弧を含むラベルは必ずダブルクォートで囲む。
+- **「◯◯タブ参照」ノードには必ず `click` でリンクを張る**（テキストだけの参照を残さない）:
+  - 同一ページ内の別タブへ: `click NODEID href "#タブID" "◯◯タブへ"`
+  - 別ページ（`routes/` 内）へ: `click NODEID href "darkdream.html#ryujinou" "竜神王タブへ"`
+  - 同一タブ内で既出のノードへの再参照（「上の図参照」等）はリンク不要（スクロールするだけで見えるため）。
 
 ## DQM3 の配合仕様（重要）
 
