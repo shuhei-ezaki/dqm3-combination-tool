@@ -26,6 +26,7 @@
   <nav class="tabs" id="tabs" role="tablist">
     <button role="tab" aria-selected="true" data-target="overview">全体図</button>
     <button role="tab" aria-selected="false" data-target="kinghydra">キングヒドラ</button>
+    <button role="tab" aria-selected="false" data-target="sidoh">シドー</button>
   </nav>
 
   <main>
@@ -36,7 +37,7 @@
   <div class="chart"><pre class="mermaid">
 flowchart TD
   KH["キングヒドラ(ドラゴン系・Aランク)<br/>キングヒドラタブ参照"] --> PA["親A(系統自由)"]
-  SD["シドー(???系・Sランク)"] --> PA
+  SD["シドー(???系・Sランク)<br/>シドータブ参照"] --> PA
   BZ["バラモスゾンビ(ゾンビ系・Sランク)"] --> PB["親B(系統自由)"]
   NZ["邪神ニズゼルファ(???系・Sランク)"] --> PB
   PA --> ZO["ゾーマ(???系・Xランク)"]
@@ -63,7 +64,7 @@ flowchart TD
 
   <div class="todo">
     <strong>進捗</strong>
-    キングヒドラ枝は末端まで展開済み。残り3枝（シドー／バラモスゾンビ／邪神ニズゼルファ）は今後のPRでタブを追加して順次展開します。
+    キングヒドラ・シドー枝は末端まで展開済み。残り2枝（バラモスゾンビ／邪神ニズゼルファ）は今後のPRでタブを追加して順次展開します。
   </div>
 
   <div class="rules">
@@ -114,6 +115,95 @@ flowchart TD
   <div class="todo">
     <strong>補足</strong>
     だいおうガマ・ソードイドはダークドレアム図のラーミアタブで既に末端（通常配合・スカウト）まで分解済みのため、この図では再掲していません。
+  </div>
+</section>
+
+<section class="panel" id="sidoh">
+  <h2>シドー（???系・Sランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。竜王×ハーゴンの特殊配合。竜王はダークドレアム図で達成済みのためここでは参照のみ。ハーゴン側は4体配合がさらに深く、末端（通常配合／スカウト）まで分解済み。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  RY["竜王(ドラゴン系・Sランク)<br/>竜神王タブ参照・達成済"] --> SD["シドー(???系・Sランク)"]
+  HG["ハーゴン(???系・Sランク)"] --> SD
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class SD goal
+  </pre></div>
+
+  <h3>ハーゴン（???系・Sランク）＝ 4体配合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AT["アトラス(悪魔系・Aランク)"] --> PA["親A(系統自由)"]
+  BR["ベリアル(悪魔系・Aランク)"] --> PA
+  AS["あくましんかん(悪魔系・Bランク)"] --> PB["親B(系統自由)"]
+  BZ["バズズ(悪魔系・Aランク)"] --> PB
+  PA --> HG["ハーゴン(???系・Sランク)"]
+  PB --> HG
+  </pre></div>
+
+  <h3>アトラス（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GT["ギガンテス(Bランク)<br/>通常配合:悪魔系×自然系(B以上)"] --> AT["アトラス(悪魔系・Aランク)"]
+  TB["トロルボンバー(Bランク)<br/>デスタムーアタブ参照"] --> AT
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class GT base
+  </pre></div>
+
+  <h3>ベリアル（悪魔系・Aランク)</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AD["アークデーモン(Bランク)<br/>通常配合:悪魔系×ドラゴン系(B以上)"] --> BR["ベリアル(悪魔系・Aランク)"]
+  BF["バッファロン(魔獣系・Bランク)"] --> BR
+  AV["アバランチャー(魔獣系・Cランク)"] --> BF
+  BO["ブラッドオックス(Bランク)<br/>通常配合:自然系×魔獣系(B以上)"] --> BF
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class AD,BO base
+  </pre></div>
+
+  <h3>アバランチャー（魔獣系・Cランク）＝ オークキング × ソルジャーブル</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OK["オークキング(魔獣系・Cランク)"] --> AV["アバランチャー(魔獣系・Cランク)"]
+  SB["ソルジャーブル(魔獣系・Dランク)"] --> AV
+  OR["オーク(Fランク)<br/>通常配合:魔獣系×自然系(F以上)"] --> OK
+  BG["ベンガル(Dランク)<br/>通常配合:魔獣系×スライム系(D以上)"] --> OK
+  AU["あばれうしどり(自然系・Fランク)"] --> SB
+  LZ["リザードマン(Eランク)<br/>通常配合:ドラゴン系×悪魔系(E以上)<br/>スカウト:常夜の要塞など"] --> SB
+  ON["おおにわとり(Gランク)<br/>スカウト:人間界(全季節・全天候)"] --> AU
+  AK["あばれこまいぬ(Fランク)<br/>通常配合:魔獣系×物質系(F以上)<br/>スカウト:煉獄峠初級(冬)"] --> AU
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class OR,BG,LZ,ON,AK base
+  </pre></div>
+
+  <h3>あくましんかん（悪魔系・Bランク）／バズズ（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MT["まおうのつかい(Bランク)<br/>通常配合:ゾンビ系×悪魔系(B以上)"] --> AS["あくましんかん(悪魔系・Bランク)"]
+  AM["アークマージ(Bランク)<br/>通常配合:悪魔系×スライム系(B以上)"] --> AS
+  GS["ギャスモン(物質系・Bランク)"] --> BZ["バズズ(悪魔系・Aランク)"]
+  SV["シルバーデビル(Dランク)<br/>通常配合:悪魔系×魔獣系(D以上)"] --> BZ
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MT,AM,SV base
+  </pre></div>
+
+  <h3>ギャスモン（物質系・Bランク）＝ 4体配合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  FL["フレイム(Dランク)<br/>通常配合:物質系×ドラゴン系(D以上)"] --> PA2["親A(系統自由)"]
+  BL["ブリザード(Dランク)<br/>通常配合:物質系×ゾンビ系(D以上)"] --> PA2
+  ES["エビルスピリッツ(Dランク)<br/>通常配合:ゾンビ系×悪魔系(D以上)"] --> PB2["親B(系統自由)"]
+  JT["じごくのたまねぎ(Dランク)<br/>通常配合:自然系×スライム系(D以上)"] --> PB2
+  PA2 --> GS["ギャスモン(物質系・Bランク)"]
+  PB2 --> GS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class FL,BL,ES,JT base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    ギャスモンの4体配合はどの2体×2体でペアを組むか出典に明記がなかったため、4体配合の一般原則（両親の系統は問わない）どおり「親A・親B自由」として記載。トロルボンバーはダークドレアム図のデスタムーアタブで既に末端まで分解済みのため再掲していません。
   </div>
 </section>
 
