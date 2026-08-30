@@ -270,6 +270,7 @@ flowchart TD
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class LM goal
   class WT base
+  click SR href "#shinryu" "しんりゅうタブへ"
   </pre></div>
 
   <h3>てんのもんばん（Aランク）</h3>
@@ -283,6 +284,8 @@ flowchart TD
   BS["びっくりサタン(Fランク)<br/>通常配合:悪魔系×ゾンビ系(F以上)"] --> KK
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class GZ,BS base
+  click HB href "#ryujinou" "竜神王タブへ"
+  click SM href "#ryujinou" "竜神王タブへ"
   </pre></div>
 
   <h3>ほうおう（Aランク）</h3>
@@ -375,6 +378,7 @@ flowchart TD
   SL["しりょうのきし(Eランク)<br/>通常配合:ゾンビ系×悪魔系(E以上)"] --> GK
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class DM,SM,BN,SL base
+  click SY href "#destamoor" "デスタムーアタブへ"
   </pre></div>
 
   <h3>ワイトキング（Bランク）— タマゴ限定を含む枝</h3>
@@ -443,6 +447,7 @@ flowchart TD
   HC["ヘルコンドル(Dランク)<br/>ガルーダ×ヘルダイバー<br/>ラーミアタブ参照"] --> ST
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class CO,SS,MK,RC,KL base
+  click HC href "#lamia" "ラーミアタブへ"
   </pre></div>
 
   <h3>闇竜バルボロス（Sランク）</h3>
@@ -462,6 +467,7 @@ flowchart TD
   AD["アックスドラゴン(Dランク)<br/>通常配合:ドラゴン系×悪魔系(D以上)"] --> AG
   classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
   class RT,BD,KL,ZS,GH,AD base
+  click GR href "#kamisama" "神さまタブへ"
   </pre></div>
 
   <div class="todo">
@@ -477,42 +483,7 @@ flowchart TD
   ダークドレアム 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
 </footer>
 
-<script>
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "base",
-    themeVariables: {
-      fontFamily: '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif',
-      fontSize: "13px",
-      primaryColor: "#ffffff",
-      primaryTextColor: "#14161c",
-      primaryBorderColor: "#8a8578",
-      lineColor: "#6f6a5c"
-    },
-    flowchart: { nodeSpacing: 55, rankSpacing: 70, curve: "basis", useMaxWidth: false }
-  });
-
-  const rendered = new Set();
-  async function renderPanel(id) {
-    if (rendered.has(id)) return;
-    const nodes = document.querySelectorAll(`#${id} .mermaid`);
-    if (nodes.length) await mermaid.run({ nodes });
-    rendered.add(id);
-  }
-
-  const tabs = document.querySelectorAll("#tabs button");
-  tabs.forEach(btn => {
-    btn.addEventListener("click", async () => {
-      tabs.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
-      document.querySelectorAll(".panel").forEach(p => {
-        p.dataset.active = String(p.id === btn.dataset.target);
-      });
-      await renderPanel(btn.dataset.target);
-    });
-  });
-
-  renderPanel("overview");
-</script>
+<script src="../assets/tabs.js"></script>
 
 </body>
 </html>
