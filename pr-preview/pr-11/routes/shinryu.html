@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>しんりゅう 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>しんりゅう <em>Xランク</em></h1>
+    <p class="lede">2体配合。ドラゴンアビス×サラマンダー。ラーミア・ダークドレアムの素材にもなります。タマゴ限定は1箇所（スカイドラゴン）。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">ドラゴンアビス×サラマンダーの2体配合。ダークドレアム図のラーミアタブでも同じ内容を使用しています（<a href="darkdream.html#lamia">ラーミアタブへ</a>）。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DA["ドラゴンアビス(Sランク)"] --> SR["しんりゅう(Xランク)"]
+  SA["サラマンダー(Aランク)"] --> SR
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class SR goal
+  </pre></div>
+
+  <h3>サラマンダー（Aランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SD["スノードラゴン(Dランク)"] --> SA["サラマンダー(Aランク)"]
+  RT["れんごく天馬(Bランク)<br/>通常配合:魔獣系×ドラゴン系(B以上)"] --> SA
+  SK["スカイドラゴン(Fランク)<br/>白・銀タマゴ限定"] --> SD
+  SG["せつげんりゅう(Dランク)<br/>通常配合:ドラゴン系×自然系(D以上)"] --> SD
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class RT,SG base
+  class SK egg
+  </pre></div>
+
+  <h3>ドラゴンアビス（Sランク）＝ じげんりゅう × 闇竜バルボロス</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  JG["じげんりゅう(Sランク)"] --> DA["ドラゴンアビス(Sランク)"]
+  YB["闇竜バルボロス(Sランク)"] --> DA
+  SN["シルバーナーガ(Aランク)"] --> JG
+  KY["クームヤーガ(Aランク)"] --> JG
+  CO["コアトル(Cランク)<br/>通常配合:ドラゴン系×ゾンビ系(C以上)"] --> SN
+  MS["メタルスコーピオン(Aランク)"] --> SN
+  SS["さそりアーマー(Cランク)<br/>通常配合:自然系×物質系(C以上)<br/>スカウト:強敵"] --> MS
+  MK["メタルキング(Bランク)<br/>スカウト:各地上級/メダル交換"] --> MS
+  ST["シャンタク(Cランク)"] --> KY
+  RC["ロックちょう(Bランク)<br/>通常配合:自然系×物質系(B以上)"] --> KY
+  KL["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> ST
+  HC["ヘルコンドル(Dランク)<br/>ガルーダ×ヘルダイバー<br/>ラーミアタブ参照"] --> ST
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class CO,SS,MK,RC,KL base
+  click HC href "darkdream.html#lamia" "ラーミアタブへ"
+  </pre></div>
+
+  <h3>闇竜バルボロス（Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GN["グレイナル(Sランク)"] --> YB["闇竜バルボロス(Sランク)"]
+  KR["黒竜丸(Aランク)"] --> YB
+  RT2["れんごく天馬(Bランク)<br/>通常配合:魔獣系×ドラゴン系(B以上)"] --> KR
+  BD["ブラックドラゴン(Bランク)<br/>通常配合:ドラゴン系×悪魔系(B以上)"] --> KR
+  GR["ゴッドライダー(Aランク)<br/>神さまタブ参照"] --> GN
+  KD["カイザードラゴン(Aランク)"] --> GN
+  KL2["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> KD
+  GD["グレイトドラゴン(Bランク)"] --> KD
+  AG["アルゴングレート(Dランク)"] --> GD
+  ZS["ずしおうまる(Cランク)<br/>通常配合:悪魔系×ドラゴン系(C以上)"] --> GD
+  GH["ギガントヒルズ(Eランク)<br/>スカウト:流神殿中級(秋/砂嵐)"] --> AG
+  AD["アックスドラゴン(Dランク)<br/>通常配合:ドラゴン系×悪魔系(D以上)"] --> AG
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class RT2,BD,KL2,ZS,GH,AD base
+  click GR href "darkdream.html#kamisama" "神さまタブへ"
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <div class="todo">
+    <strong>注意</strong>
+    れんごく天馬は黒竜丸とサラマンダーで各1体、計2体必要（配合で素材は消費されます）。ゴッドライダーも神さま用と兼ねるなら2体必要です。
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  しんりゅう 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script src="../assets/tabs.js"></script>
+
+</body>
+</html>
