@@ -15,6 +15,7 @@ routes/
   darkdream.html      … ダークドレアム（既存）
   zoma.html           … ゾーマ（既存）
   shinryu.html        … しんりゅう（既存。darkdream.html のラーミアタブにも同内容が載っている）
+  kamisama.html       … 神さま（既存。darkdream.html の神さまタブにも同内容が載っている）
   <スラッグ>.html      … 目標モンスター1体につき1ファイル
 ```
 
