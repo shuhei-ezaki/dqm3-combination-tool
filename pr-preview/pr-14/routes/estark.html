@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エスターク 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>エスターク <em>Xランク</em></h1>
+    <p class="lede">4体配合。枝ごとにタブを分け、末端（通常配合・スカウト・タマゴ限定）まで分解済み。デスピサロ（Sランク）はエスターク専用の素材で、単独では目標にしません。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+    <button role="tab" aria-selected="false" data-target="despisaro">デスピサロ</button>
+    <button role="tab" aria-selected="false" data-target="mildrath">ミルドラース</button>
+    <button role="tab" aria-selected="false" data-target="rhapthorne">暗黒神ラプソーン</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">エスタークは4体配合。祖父母4体を「デスピサロ×ミルドラース」「暗黒神ラプソーン×冥獣王ネルゲル」の2ペアで両親にすると、孫としてエスタークが生まれます。両親の系統は問いません。冥獣王ネルゲルはゾーマ図で既に解決済みです。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DP["デスピサロ(???系・Sランク)<br/>デスピサロタブ参照"] --> PA["親A(系統自由)"]
+  ML["ミルドラース(???系・Sランク)<br/>ミルドラースタブ参照"] --> PA
+  RT["暗黒神ラプソーン(???系・Sランク)<br/>暗黒神ラプソーンタブ参照"] --> PB["親B(系統自由)"]
+  NG["冥獣王ネルゲル(???系・Sランク)<br/>ゾーマ図参照"] --> PB
+  PA --> ES["エスターク(???系・Xランク)"]
+  PB --> ES
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class ES goal
+  click DP href "#despisaro" "デスピサロタブへ"
+  click ML href "#mildrath" "ミルドラースタブへ"
+  click RT href "#rhapthorne" "暗黒神ラプソーンタブへ"
+  click NG href "zoma.html#nizzelpha" "ゾーマ図（邪神ニズゼルファタブ）へ"
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <h3>タマゴ限定のボトルネック（2箇所）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  KR2["キングレオ(Aランク)<br/>虹タマゴ限定・クリア後に出現"] --> HB2["ヘルバトラー(Aランク)"]
+  HB2 --> DP2["デスピサロ(Sランク)"]
+  DP2 --> ES2["エスターク(Xランク)"]
+  LN2["ライオネック(Bランク)<br/>金タマゴ限定"] --> GM3["ゲマ(Sランク)"]
+  GM3 --> ML4["ミルドラース(Sランク)"]
+  ML4 --> ES2
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class KR2,LN2 egg
+  </pre></div>
+
+  <div class="todo">
+    <strong>ダークドレアム図・ゾーマ図との違い</strong>
+    エスターク自体のタマゴ限定はここに挙げた2箇所（キングレオ＝虹タマゴ／ライオネック＝金タマゴ）のみで、いずれも回避ルートは見つかりませんでした。<strong>虹タマゴはこのページで初めて確認した色</strong>（既知は銀・金のみ）で、ストーリークリア後に出現するとの報告あり。
+  </div>
+
+  <div class="rules">
+    <strong>出典</strong>
+    <ul>
+      <li>ゲームウィズ DQM3（系統・ランク・配合。優先ソース）</li>
+      <li>hyperWiki DQM3 ／ ゲームエイト DQM3</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="despisaro">
+  <h2>デスピサロ（???系・Sランク）</h2>
+  <p class="note">エスタークの4体配合素材の1体。アンドレアル・エビルプリースト・ギガデーモン・ヘルバトラーの4体配合。ヘルバトラー側に虹タマゴ限定（キングレオ）があります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AN["アンドレアル(ドラゴン系・Aランク)"] --> PA2["親A(系統自由)"]
+  EP["エビルプリースト(悪魔系・Sランク)"] --> PA2
+  GD["ギガデーモン(悪魔系・Aランク)"] --> PB2["親B(系統自由)"]
+  HB["ヘルバトラー(悪魔系・Aランク)"] --> PB2
+  PA2 --> DP["デスピサロ(???系・Sランク)"]
+  PB2 --> DP
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class DP goal
+  </pre></div>
+
+  <h3>アンドレアル（ドラゴン系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GT["ギガントドラゴン(Bランク)<br/>通常配合:ドラゴン系×スライム系(B以上)"] --> AN["アンドレアル(ドラゴン系・Aランク)"]
+  FB["フェイスボール(Bランク)<br/>通常配合:ゾンビ系×自然系(B以上)<br/>スカウト:覇王城/精霊樹の森"] --> AN
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class GT,FB base
+  </pre></div>
+
+  <h3>エビルプリースト（悪魔系・Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SK["スカイシーカー(悪魔系・Aランク)"] --> EP["エビルプリースト(悪魔系・Sランク)"]
+  SG["スモールグール(Bランク)<br/>通常配合:ゾンビ系×スライム系(B以上)"] --> EP
+  TM["タイムマスター(悪魔系・Cランク)"] --> SK
+  FS["ふうらいスライム(Bランク)<br/>竜神王タブ参照"] --> SK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class SG base
+  click FS href "darkdream.html#ryujinou" "竜神王タブへ"
+  </pre></div>
+
+  <h3>ギガデーモン（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BZ["バルザック(悪魔系・Aランク)"] --> GD["ギガデーモン(悪魔系・Aランク)"]
+  MS["メタルスコーピオン(Aランク)<br/>しんりゅう図参照"] --> GD
+  click MS href "shinryu.html#overview" "しんりゅう図へ"
+  </pre></div>
+
+  <h3>ヘルバトラー（悪魔系・Aランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AH["アンクルホーン(Cランク)"] --> HB["ヘルバトラー(悪魔系・Aランク)"]
+  KR["キングレオ(魔獣系・Aランク)<br/>虹タマゴ限定・クリア後に出現<br/>配合/スカウト不可"] --> HB
+  TK["てっきゅうまじん(Cランク)<br/>ゾーマ図参照"] --> AH
+  SR["サイレス(Dランク)<br/>ラーミアタブ参照"] --> AH
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class KR egg
+  click TK href "zoma.html#sidoh" "ゾーマ図（シドータブ）へ"
+  click SR href "darkdream.html#lamia" "ラーミアタブへ"
+  </pre></div>
+
+  <h3>タイムマスター（悪魔系・Cランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OP["ひとつめピエロ(Eランク)<br/>通常配合:悪魔系×自然系(E以上)"] --> TM["タイムマスター(悪魔系・Cランク)"]
+  NB["ネクロバルサ(Cランク)<br/>通常配合:悪魔系×魔獣系(C以上)"] --> TM
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class OP,NB base
+  </pre></div>
+
+  <h3>バルザック（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OK["おにこんぼう(悪魔系・Bランク)"] --> BZ2["バルザック(悪魔系・Aランク)"]
+  BR["ベロリンマン(Bランク)<br/>スカウト:流神殿上級(星・全季節)"] --> BZ2
+  GT2["ギガンテス(Bランク)<br/>通常配合:悪魔系×自然系(B以上)"] --> OK
+  OZ["おにこぞう(Fランク)<br/>通常配合:悪魔系×ドラゴン系(F以上)"] --> OK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class BR,GT2,OZ base
+  </pre></div>
+</section>
+
+<section class="panel" id="mildrath">
+  <h2>ミルドラース（???系・Sランク）</h2>
+  <p class="note">エスタークの4体配合素材の1体。ゲマ・メカバーン・ムーンフェイス・セルゲイナスの4体配合。ゲマ側に金タマゴ限定（ライオネック）があります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GM["ゲマ(???系・Sランク)"] --> PA3["親A(系統自由)"]
+  MB["メカバーン(ドラゴン系・Aランク)"] --> PA3
+  MF["ムーンフェイス(魔獣系・Cランク)"] --> PB3["親B(系統自由)"]
+  SG2["セルゲイナス(Bランク)<br/>通常配合:悪魔系×物質系(B以上)"] --> PB3
+  PA3 --> ML["ミルドラース(???系・Sランク)"]
+  PB3 --> ML
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class ML goal
+  class SG2 base
+  </pre></div>
+
+  <h3>ゲマ（???系・Sランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  LN["ライオネック(Bランク)<br/>金タマゴ限定・配合/スカウト不可"] --> GM["ゲマ(???系・Sランク)"]
+  EP2["エビルプリースト(悪魔系・Sランク)<br/>デスピサロタブ参照"] --> GM
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class LN egg
+  click EP2 href "#despisaro" "デスピサロタブへ"
+  </pre></div>
+
+  <h3>メカバーン（ドラゴン系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MD["メタルドラゴン(Dランク)<br/>通常配合:ドラゴン系×物質系(D以上)"] --> MB["メカバーン(ドラゴン系・Aランク)"]
+  GG["ゴールデンゴーレム(物質系・Bランク)<br/>ゾーマ図参照"] --> MB
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MD base
+  click GG href "zoma.html#nizzelpha" "ゾーマ図（邪神ニズゼルファタブ）へ"
+  </pre></div>
+
+  <h3>ムーンフェイス（魔獣系・Cランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BA["ビックアイ(魔獣系・Eランク)"] --> MF["ムーンフェイス(魔獣系・Cランク)"]
+  RE["レッドイーター(Cランク)<br/>スカウト:お菓子の城(季節・天候問わず)"] --> MF
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class RE base
+  </pre></div>
+
+  <h3>ビックアイ（魔獣系・Eランク）＝ シーメーダ × 魔獣系</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SM3["シーメーダ(悪魔系・Fランク)"] --> BA["ビックアイ(魔獣系・Eランク)"]
+  JY["魔獣系(任意のモンスター)"] --> BA
+  MD3["メーダ(Gランク)<br/>通常配合:自然系×悪魔系(G以上)"] --> SM3
+  PA6["プチアーノン(Gランク)<br/>通常配合:スライム系×自然系(G以上)"] --> SM3
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MD3,PA6 base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    ビックアイの特殊配合はシーメーダ×「魔獣系の任意のモンスター」という緩い条件です。ムーンフェイス自体は既に魔獣系なので、この枝に限れば追加調達は不要な場合もあります。
+  </div>
+</section>
+
+<section class="panel" id="rhapthorne">
+  <h2>暗黒神ラプソーン（???系・Sランク）</h2>
+  <p class="note">エスタークの4体配合素材の1体。ドルマゲス×魔犬レオパルドの2体配合で、他の2枝より浅め。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DM["ドルマゲス(???系・Sランク)"] --> RT["暗黒神ラプソーン(???系・Sランク)"]
+  ML2["魔犬レオパルド(魔獣系・Aランク)"] --> RT
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class RT goal
+  </pre></div>
+
+  <h3>ドルマゲス（???系・Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GM2["ゲマ(???系・Sランク)<br/>ミルドラースタブ参照"] --> DM["ドルマゲス(???系・Sランク)"]
+  KJ["キラージャック(Bランク)<br/>通常配合:悪魔系×ゾンビ系(B以上)"] --> DM
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class KJ base
+  click GM2 href "#mildrath" "ミルドラースタブへ"
+  </pre></div>
+
+  <h3>魔犬レオパルド（魔獣系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SP["シャドウパンサー(魔獣系・Bランク)<br/>ゾーマ図参照"] --> ML2["魔犬レオパルド(魔獣系・Aランク)"]
+  HS["ヘルシーサー(Bランク)<br/>通常配合:物質系×魔獣系(B以上)"] --> ML2
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class HS base
+  click SP href "zoma.html#nizzelpha" "ゾーマ図（邪神ニズゼルファタブ）へ"
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    ゲマは「ミルドラース」枝と「暗黒神ラプソーン（ドルマゲス経由）」枝の両方で必要なため、実際には2体作る必要があります（素材は消費されるため）。
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  エスターク 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script src="../assets/tabs.js"></script>
+
+</body>
+</html>
