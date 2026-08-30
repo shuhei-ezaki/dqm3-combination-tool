@@ -27,6 +27,7 @@
     <button role="tab" aria-selected="true" data-target="overview">全体図</button>
     <button role="tab" aria-selected="false" data-target="kinghydra">キングヒドラ</button>
     <button role="tab" aria-selected="false" data-target="sidoh">シドー</button>
+    <button role="tab" aria-selected="false" data-target="baramoszombie">バラモスゾンビ</button>
   </nav>
 
   <main>
@@ -38,7 +39,7 @@
 flowchart TD
   KH["キングヒドラ(ドラゴン系・Aランク)<br/>キングヒドラタブ参照"] --> PA["親A(系統自由)"]
   SD["シドー(???系・Sランク)<br/>シドータブ参照"] --> PA
-  BZ["バラモスゾンビ(ゾンビ系・Sランク)"] --> PB["親B(系統自由)"]
+  BZ["バラモスゾンビ(ゾンビ系・Sランク)<br/>バラモスゾンビタブ参照"] --> PB["親B(系統自由)"]
   NZ["邪神ニズゼルファ(???系・Sランク)"] --> PB
   PA --> ZO["ゾーマ(???系・Xランク)"]
   PB --> ZO
@@ -64,7 +65,12 @@ flowchart TD
 
   <div class="todo">
     <strong>進捗</strong>
-    キングヒドラ・シドー枝は末端まで展開済み。残り2枝（バラモスゾンビ／邪神ニズゼルファ）は今後のPRでタブを追加して順次展開します。
+    キングヒドラ・シドー・バラモスゾンビ枝は末端まで展開済み。残り1枝（邪神ニズゼルファ）は今後のPRでタブを追加して展開します。
+  </div>
+
+  <div class="todo">
+    <strong>タマゴ限定のボトルネックを新たに確認（バラモスゾンビ枝）</strong>
+    バラモス側の「キラーシャドー ＝ ドルマージュ × シャドー」「ドルマージュ ＝ マネマネ × エビルスピリッツ」で、<strong>マネマネが銀タマゴ限定</strong>（配合・スカウト不可）。代替ルートを探しましたが見つからず、この枝では回避不可能です。詳細はバラモスゾンビタブ参照。ダークドレアム図の2箇所（スカイドラゴン／ピサロのてさき）とは別の、ゾーマ独自のボトルネックです。
   </div>
 
   <div class="rules">
@@ -204,6 +210,65 @@ flowchart TD
   <div class="todo">
     <strong>補足</strong>
     ギャスモンの4体配合はどの2体×2体でペアを組むか出典に明記がなかったため、4体配合の一般原則（両親の系統は問わない）どおり「親A・親B自由」として記載。トロルボンバーはダークドレアム図のデスタムーアタブで既に末端まで分解済みのため再掲していません。
+  </div>
+</section>
+
+<section class="panel" id="baramoszombie">
+  <h2>バラモスゾンビ（ゾンビ系・Sランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。バラモス×スカルゴンの特殊配合。バラモス側の末端に<strong>銀タマゴ限定（マネマネ）</strong>の回避不能なボトルネックがあります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BR["バラモス(???系・Aランク)"] --> BZ["バラモスゾンビ(ゾンビ系・Sランク)"]
+  SG["スカルゴン(ゾンビ系・Bランク)"] --> BZ
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class BZ goal
+  </pre></div>
+
+  <h3>バラモス（???系・Aランク）＝ まおうのかげ × ボストロール</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MK["まおうのかげ(ゾンビ系・Aランク)"] --> BR["バラモス(???系・Aランク)"]
+  BS["ボストロール(Dランク)<br/>デスタムーアタブ参照"] --> BR
+  </pre></div>
+
+  <h3>まおうのかげ（ゾンビ系・Aランク）＝ まおうのつかい × キラーシャドー</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MT["まおうのつかい(Bランク)<br/>通常配合:ゾンビ系×悪魔系(B以上)"] --> MK["まおうのかげ(ゾンビ系・Aランク)"]
+  KS["キラーシャドー(ゾンビ系・Bランク)"] --> MK
+  DM["ドルマージュ(ゾンビ系・Cランク)"] --> KS
+  SH["シャドー(Fランク)<br/>スカウト:煉獄峠・流神殿・鉄鋼砦・煉獄洞・炎の神殿・竜の首(夏)"] --> KS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MT,SH base
+  </pre></div>
+
+  <h3>ドルマージュ（ゾンビ系・Cランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MN["マネマネ(Eランク)<br/>銀タマゴ限定・配合/スカウト不可"] --> DM["ドルマージュ(ゾンビ系・Cランク)"]
+  ES["エビルスピリッツ(Dランク)<br/>通常配合:ゾンビ系×悪魔系(D以上)"] --> DM
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MN egg
+  class ES base
+  </pre></div>
+
+  <h3>スカルゴン（ゾンビ系・Bランク）＝ ドラゴンコープス × ボーンプリズナー</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DC["ドラゴンコープス(Bランク)<br/>通常配合:ゾンビ系×ドラゴン系(B以上)"] --> SG["スカルゴン(ゾンビ系・Bランク)"]
+  BP["ボーンプリズナー(ゾンビ系・Cランク)"] --> SG
+  SD["しのどれい(Eランク)<br/>神さまタブ参照"] --> BP
+  PZ["ポイズンゾンビ(Dランク)<br/>スカウト:覇王城上級(春/秋/冬・赤い月)/煉獄峠上級(春)"] --> BP
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DC,PZ base
+  </pre></div>
+
+  <div class="todo">
+    <strong>タマゴ限定のボトルネック</strong>
+    キラーシャドーの配合ルートは「ドルマージュ×シャドー」の1通りのみで、ドルマージュは「マネマネ×エビルスピリッツ」の1通りのみ。マネマネは銀タマゴからのみ入手可能（配合・スカウト不可）で、代替ルートは見つかりませんでした。CLAUDE.md に記載の「ドルマージュ→マネマネの枝は不要」はムドー側（ホラービーストで回避可能）の話で、こちらのバラモス側には回避先がありません。
   </div>
 </section>
 
