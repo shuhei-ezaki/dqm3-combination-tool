@@ -4,12 +4,32 @@
 
 ## 成果物
 
-- `index.html` — 入口ページ。公開中／作成予定のルート図をカード一覧で表示する。新しいルート図を追加したら、`<a class="route">` ブロックをコピーして1枚足し、`<h2>` の `<span class="count">` の数字も更新する。
-  - デザインは「配合系譜図」路線（暗色の方眼＝設計図トーン＋ネオンの合成式ヒーロー、`Mochiy Pop One` / `IBM Plex Mono` / `DotGothic16` を Google Fonts から読み込み）。単一テーマにコミットしており色は全て明示指定。安易に配色・フォントを差し替えない。
-- `dqm3-<スラッグ>-route.html` — 目標モンスター1体につき単一ファイル。Mermaid 10 を CDN から読み込み、タブ切り替えで各ルートを表示する。
-  - 既存: `dqm3-darkdream-route.html`（ダークドレアム）。図本体の配色は従来の paper/ink のまま（index とはトーンが異なる）。
-- 依存なし。ブラウザで直接開ける（`file://` で可）。目視確認は `npx serve .` などか、ブラウザで直接開く（Mermaid はターミナルではレンダリングできない）。
-- 新しいルート図を作るときは既存の `dqm3-darkdream-route.html` の CSS・タブ機構をベースにする。
+### ファイル構成
+
+```
+index.html            … 入口ページ（公開中／作成予定のルートをカード一覧）
+assets/theme.css      … 全ページ共通のテーマCSS
+routes/
+  _template.html      … 新規ルートページの雛形
+  darkdream.html      … ダークドレアム（既存）
+  <スラッグ>.html      … 目標モンスター1体につき1ファイル
+```
+
+- 各ページは単一 HTML ＋ `assets/theme.css`。Mermaid 10 と Google Fonts を CDN から読み込む以外は依存なし。ブラウザで直接開ける（`file://` で可）。
+- 目視確認は `npx serve .` などか、ブラウザで直接開く（Mermaid はターミナルではレンダリングできない）。
+
+### デザインテーマ「配合系譜図」
+
+- 暗色の方眼＝設計図トーン ＋ ネオンの合成式。フォントは `Mochiy Pop One` / `IBM Plex Mono` / `DotGothic16` / `Zen Kaku Gothic New`（Google Fonts）。
+- **配色・フォント・レイアウトは `assets/theme.css` に集約。** 各 HTML には基本的に `<style>` を書かない。単一テーマにコミットしており色は全てトークンで明示指定。安易に差し替えない。
+- Mermaid の配合図そのものは従来どおり明るい配色（`theme: "base"` の白背景）。暗い画面に浮かぶ「明るいシート」として `.chart` で枠付けする。classDef（金＝目標／青＝通常配合・スカウト終端／赤＝タマゴ限定／白＝特殊配合）はそのまま。
+
+### 新しいルートページの作り方
+
+1. `routes/_template.html` を複製して `routes/<スラッグ>.html` を作る。
+2. `<title>`・`<h1>`・`.lede`・タブ・配合図（`<pre class="mermaid">`）を埋める。
+3. `index.html` の「公開中のルート」に `<a class="route">` カードを1枚追加し、`<h2>` の `<span class="count">` を +1 する。
+4. スラッグは英小文字（例: `darkdream`, `estark`）。
 
 ## 図の作成ルール
 
@@ -31,7 +51,7 @@
 
 ### タブ構成
 
-全体図 / 竜神王 / デスタムーア / ラーミア / 神さま / しんりゅう
+タブはページごとに設計する。ダークドレアム（`routes/darkdream.html`）は 全体図 / 竜神王 / デスタムーア / ラーミア / 神さま / しんりゅう。
 
 1タブ内に `<h3>` + `.chart` を複数置いて枝ごとに分割してよい。1つの Mermaid 図が大きくなりすぎるとかえって読めない。
 
