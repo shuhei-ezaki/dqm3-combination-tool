@@ -1,0 +1,38 @@
+name: PR preview
+
+# 各 PR の確認用環境。
+# https://shuhei-ezaki.github.io/dqm3-combination-tool/pr-preview/pr-<番号>/
+# PR にプレビュー URL のコメントが付き、PR クローズ時に自動削除される。
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    # フォークからの PR では GITHUB_TOKEN が読み取り専用になり gh-pages へ
+    # 書き込めない。自分のブランチからの PR のみ対象。
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build site
+        if: github.event.action != 'closed'
+        run: bash scripts/build-site.sh _site
+
+      - name: Deploy / update / remove preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./_site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto

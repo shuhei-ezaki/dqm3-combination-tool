@@ -1,0 +1,40 @@
+name: Deploy production
+
+# main = 本番環境。https://shuhei-ezaki.github.io/dqm3-combination-tool/
+# gh-pages ブランチのルートに配置する（PR プレビューは pr-preview/ 配下に共存）。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# gh-pages への書き込みは本番・プレビュー全ワークフローで直列化する
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build site
+        run: bash scripts/build-site.sh _site
+
+      - name: Publish to gh-pages (root)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          # pr-preview/ を消さないため keep_files。名前を変えた旧ファイルは
+          # gh-pages に残るので、完全に掃除したいときは下の force_orphan を
+          # 一度 true にして手動実行する。
+          keep_files: true
+          # force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy production ${{ github.sha }}'

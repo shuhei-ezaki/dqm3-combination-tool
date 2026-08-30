@@ -31,6 +31,17 @@ routes/
 3. `index.html` の「公開中のルート」に `<a class="route">` カードを1枚追加し、`<h2>` の `<span class="count">` を +1 する。
 4. スラッグは英小文字（例: `darkdream`, `estark`）。
 
+## デプロイ（GitHub Pages）
+
+- **本番**: `main` にマージ → `.github/workflows/deploy.yml` が `scripts/build-site.sh` でサイトを組み立て、`gh-pages` ブランチのルートへ公開。
+  URL: `https://shuhei-ezaki.github.io/dqm3-combination-tool/`
+- **確認用**: PR を作成／更新 → `.github/workflows/pr-preview.yml` が `gh-pages` の `pr-preview/pr-<番号>/` へ公開し、PR にプレビュー URL をコメント。PR クローズで自動削除。
+  URL: `https://shuhei-ezaki.github.io/dqm3-combination-tool/pr-preview/pr-<番号>/`
+- 公開されるのは `index.html` / `assets/` / `routes/*.html`（`routes/_template.html` は除外）。ビルド手順を変えるなら `scripts/build-site.sh` を直す。
+- `gh-pages` への書き込みは concurrency group `deploy-gh-pages` で直列化。
+- パスはすべて相対（`assets/…`, `../assets/…`）。サブディレクトリ配信でも動くよう、絶対パスの内部リンクを足さないこと。
+- Pages のソースは「Deploy from a branch → `gh-pages` / `/`」。公開リポジトリなので Actions・Pages とも無料。
+
 ## 図の作成ルール
 
 - 末端は必ず「通常配合（系統×系統＋ランク条件）」まで分解する。
