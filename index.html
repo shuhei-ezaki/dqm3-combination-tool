@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DQM3 配合ルート図 一覧</title>
+<style>
+  :root {
+    --ink: #14161c;
+    --paper: #f2efe6;
+    --line: #c9c3b2;
+    --accent: #7b3f00;
+    --card: #ffffff;
+    --goal: #ffd700;
+    --muted: #5a5648;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    padding: 24px 16px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  h1 { font-size: 21px; margin: 0 0 4px; letter-spacing: 0.02em; }
+  .sub { font-size: 13px; color: var(--muted); margin: 0; }
+
+  main { padding: 20px 16px 40px; max-width: 960px; margin: 0 auto; }
+
+  h2 {
+    font-size: 15px;
+    margin: 28px 0 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2:first-of-type { margin-top: 4px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.12s, transform 0.12s;
+  }
+  a.card:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+  a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .card .goal {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+  .card .goal .rank {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+  .card .desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 4px 0 10px;
+    flex: 1;
+  }
+  .card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 2px 7px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--paper);
+  }
+  .tag.done   { background: #d9f0dc; border-color: #7bb98a; }
+  .tag.egg    { background: #ffd6d6; border-color: #d96a6a; }
+  .tag.four   { background: #ffe9c2; border-color: #d9a94a; }
+
+  .card.stub {
+    border-style: dashed;
+    opacity: 0.7;
+  }
+  .card.stub .goal { color: var(--muted); }
+
+  .about {
+    font-size: 12.5px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 12px 14px;
+    margin-top: 28px;
+  }
+  .about ul { margin: 6px 0 0; padding-left: 18px; }
+  .about li { margin-bottom: 3px; }
+  .about code {
+    background: var(--paper);
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+
+  footer {
+    padding: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>DQM3 配合ルート図</h1>
+  <p class="sub">目標モンスターごとに、素材を通常配合・スカウト・タマゴ限定まで分解した配合ルート図をまとめています。</p>
+</header>
+
+<main>
+  <h2>公開中のルート</h2>
+  <div class="grid">
+
+    <a class="card" href="dqm3-darkdream-route.html">
+      <p class="goal">ダークドレアム<span class="rank">Xランク</span></p>
+      <p class="desc">4体配合。デスタムーア×ラーミア、神さま×竜神王の2ペアから。竜神王は達成済み。</p>
+      <div class="tags">
+        <span class="tag four">4体配合</span>
+        <span class="tag egg">タマゴ限定 2箇所</span>
+        <span class="tag done">竜神王 達成済み</span>
+      </div>
+    </a>
+
+    <!-- 新しいルートを追加するときは、この <a class="card"> ブロックをコピーして
+         href をルート図ファイル名に差し替える。ファイル名は dqm3-<スラッグ>-route.html で統一する。 -->
+
+  </div>
+
+  <h2>作成予定</h2>
+  <div class="grid">
+
+    <div class="card stub">
+      <p class="goal">（未定）</p>
+      <p class="desc">作りたい目標モンスターが決まったらここに追加します。</p>
+      <div class="tags"><span class="tag">計画中</span></div>
+    </div>
+
+  </div>
+
+  <div class="about">
+    <strong>このサイトについて</strong>
+    <ul>
+      <li>各ルート図は依存なしの単一 HTML。ブラウザで直接開けます。</li>
+      <li>末端はすべて「通常配合（系統×系統＋ランク条件）」「スカウト」「タマゴ限定」のいずれかまで分解しています。</li>
+      <li>矢印の向きは「素材 → 完成品」。色の凡例は各ページ内に記載。</li>
+      <li>ローカル確認は <code>npx serve .</code> でこのフォルダを開いてください（Mermaid はブラウザでのみ描画されます）。</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  ドラゴンクエストモンスターズ3 配合ルート図集 — 非公式ファンメモ
+</footer>
+
+</body>
+</html>
