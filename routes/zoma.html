@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ゾーマ 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>ゾーマ <em>Xランク</em></h1>
+    <p class="lede">4体配合。DQ3 のラスボス。まだ<strong>全体図＋第1レベル（4親の配合）</strong>までの段階公開です。各枝の末端（通常配合・スカウト・タマゴ限定）までの分解は順次追加します。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">ゾーマは4体配合。祖父母4体を「キングヒドラ×シドー」「バラモスゾンビ×邪神ニズゼルファ」の2ペアで両親にすると、孫としてゾーマが生まれます。両親の系統は問いません。4体とも通常配合では作れない特殊配合モンスターです。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  KH["キングヒドラ(ドラゴン系・Aランク)"] --> PA["親A(系統自由)"]
+  SD["シドー(???系・Sランク)"] --> PA
+  BZ["バラモスゾンビ(ゾンビ系・Sランク)"] --> PB["親B(系統自由)"]
+  NZ["邪神ニズゼルファ(???系・Sランク)"] --> PB
+  PA --> ZO["ゾーマ(???系・Xランク)"]
+  PB --> ZO
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class ZO goal
+  </pre></div>
+
+  <h3>第1レベル：キングヒドラ（ドラゴン系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  YO["やまたのおろち(ドラゴン系・Bランク)"] --> KH["キングヒドラ(ドラゴン系・Aランク)"]
+  CL["クラーゴン(自然系・Aランク)"] --> KH
+  </pre></div>
+
+  <h3>第1レベル：シドー（???系・Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  RY["竜王(ドラゴン系・Sランク)<br/>ダークドレアム図参照"] --> SD["シドー(???系・Sランク)"]
+  HG["ハーゴン(???系・Sランク)<br/>4体配合"] --> SD
+  </pre></div>
+
+  <h3>第1レベル：バラモスゾンビ（ゾンビ系・Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BR["バラモス(???系・Aランク)"] --> BZ["バラモスゾンビ(ゾンビ系・Sランク)"]
+  SG["スカルゴン(ゾンビ系・Bランク)"] --> BZ
+  </pre></div>
+
+  <h3>第1レベル：邪神ニズゼルファ（???系・Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  JC["邪神の子(悪魔系・Sランク)"] --> NZ["邪神ニズゼルファ(???系・Sランク)"]
+  NG["冥獣王ネルゲル(???系・Sランク)"] --> NZ
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <div class="todo">
+    <strong>次のPRで展開する枝（調査済みの暫定ルート・gameludens由来は要ゲームウィズ照合）</strong>
+    ・キングヒドラ枝：やまたのおろち ＝ ガメゴンロード × だいおうガマ／クラーゴン ＝ ソードイド × だいおうイカ（だいおうガマ・ソードイドは既に訂正済み。ガメゴンロード・だいおうイカはこれから照合）<br>
+    ・シドー枝：ハーゴン ＝ 4体配合［アトラス ＋ ベリアル ＋ あくましんかん ＋ バズズ］。竜王はダークドレアム図を参照。<br>
+    ・バラモスゾンビ枝：バラモス ＝ まおうのかげ × ボストロール（ボストロールはダークドレアム図参照）／スカルゴン ＝ ドラゴンコープス × ボーンプリズナー<br>
+    ・ニズゼルファ枝：邪神の子 ＝ 大魔王ウルノーガ × ワルぼう／冥獣王ネルゲル ＝ 堕天使エルギオス × 守護者ラズバーン
+  </div>
+
+  <div class="rules">
+    <strong>未確定・要精査</strong>
+    <ul>
+      <li>スカルゴンの入手法：「スカウト（流神殿の魔界上級・晴）」「タマゴ限定」「ドラゴンコープス×ボーンプリズナー配合」で情報が分かれる。展開時に要確認。</li>
+      <li>アルテマ（配合表の第一情報源）が現在自動取得できず、hyperwiki／ゲームエイト／ゲームウィズで代替中。gameludens は誤りが確認された（下記）ため優先度を下げる。</li>
+    </ul>
+  </div>
+
+  <div class="rules">
+    <strong>訂正</strong>
+    だいおうガマ ＝ フロッガー×うずしおキング、ソードイド ＝ がいこつけんし×ソードファントム（いずれもダークドレアム図と同じ）が正しい。gameludens に記載の「フロッガー×かまいたち」「ボーンナイト×悪魔系」は誤り。やまたのおろち／クラーゴンの展開時はこの2点を踏襲する。
+  </div>
+
+  <div class="rules">
+    <strong>出典</strong>
+    <ul>
+      <li>ゲームウィズ DQM3（系統・ランク・配合。今回の照合で誤りなし、優先ソース）</li>
+      <li>hyperWiki DQM3（配合レシピが構造化されている）</li>
+      <li>ゲームエイト DQM3</li>
+      <li>gameludens（多段の配合チェーンが読みやすいが、一部誤りを確認済み。単独ソースの場合は要クロスチェック）</li>
+    </ul>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  ゾーマ 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: "base",
+    themeVariables: {
+      fontFamily: '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif',
+      fontSize: "13px",
+      primaryColor: "#ffffff",
+      primaryTextColor: "#14161c",
+      primaryBorderColor: "#8a8578",
+      lineColor: "#6f6a5c"
+    },
+    flowchart: { nodeSpacing: 55, rankSpacing: 70, curve: "basis", useMaxWidth: false }
+  });
+
+  const rendered = new Set();
+  async function renderPanel(id) {
+    if (rendered.has(id)) return;
+    const nodes = document.querySelectorAll(`#${id} .mermaid`);
+    if (nodes.length) await mermaid.run({ nodes });
+    rendered.add(id);
+  }
+
+  const tabs = document.querySelectorAll("#tabs button");
+  tabs.forEach(btn => {
+    btn.addEventListener("click", async () => {
+      tabs.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
+      document.querySelectorAll(".panel").forEach(p => {
+        p.dataset.active = String(p.id === btn.dataset.target);
+      });
+      await renderPanel(btn.dataset.target);
+    });
+  });
+
+  renderPanel("overview");
+</script>
+
+</body>
+</html>
