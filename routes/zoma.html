@@ -18,13 +18,14 @@
   <div class="wrap">
     <a class="backlink" href="../index.html">一覧へ戻る</a>
     <h1>ゾーマ <em>Xランク</em></h1>
-    <p class="lede">4体配合。DQ3 のラスボス。まだ<strong>全体図＋第1レベル（4親の配合）</strong>までの段階公開です。各枝の末端（通常配合・スカウト・タマゴ限定）までの分解は順次追加します。</p>
+    <p class="lede">4体配合。DQ3 のラスボス。枝ごとにタブを分けて段階的に展開しています。タブでルートを切り替えます。</p>
   </div>
 </header>
 
 <div class="wrap" id="panels">
   <nav class="tabs" id="tabs" role="tablist">
     <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+    <button role="tab" aria-selected="false" data-target="kinghydra">キングヒドラ</button>
   </nav>
 
   <main>
@@ -34,7 +35,7 @@
   <p class="note">ゾーマは4体配合。祖父母4体を「キングヒドラ×シドー」「バラモスゾンビ×邪神ニズゼルファ」の2ペアで両親にすると、孫としてゾーマが生まれます。両親の系統は問いません。4体とも通常配合では作れない特殊配合モンスターです。</p>
   <div class="chart"><pre class="mermaid">
 flowchart TD
-  KH["キングヒドラ(ドラゴン系・Aランク)"] --> PA["親A(系統自由)"]
+  KH["キングヒドラ(ドラゴン系・Aランク)<br/>キングヒドラタブ参照"] --> PA["親A(系統自由)"]
   SD["シドー(???系・Sランク)"] --> PA
   BZ["バラモスゾンビ(ゾンビ系・Sランク)"] --> PB["親B(系統自由)"]
   NZ["邪神ニズゼルファ(???系・Sランク)"] --> PB
@@ -44,34 +45,6 @@ flowchart TD
   class ZO goal
   </pre></div>
 
-  <h3>第1レベル：キングヒドラ（ドラゴン系・Aランク）</h3>
-  <div class="chart"><pre class="mermaid">
-flowchart TD
-  YO["やまたのおろち(ドラゴン系・Bランク)"] --> KH["キングヒドラ(ドラゴン系・Aランク)"]
-  CL["クラーゴン(自然系・Aランク)"] --> KH
-  </pre></div>
-
-  <h3>第1レベル：シドー（???系・Sランク）</h3>
-  <div class="chart"><pre class="mermaid">
-flowchart TD
-  RY["竜王(ドラゴン系・Sランク)<br/>ダークドレアム図参照"] --> SD["シドー(???系・Sランク)"]
-  HG["ハーゴン(???系・Sランク)<br/>4体配合"] --> SD
-  </pre></div>
-
-  <h3>第1レベル：バラモスゾンビ（ゾンビ系・Sランク）</h3>
-  <div class="chart"><pre class="mermaid">
-flowchart TD
-  BR["バラモス(???系・Aランク)"] --> BZ["バラモスゾンビ(ゾンビ系・Sランク)"]
-  SG["スカルゴン(ゾンビ系・Bランク)"] --> BZ
-  </pre></div>
-
-  <h3>第1レベル：邪神ニズゼルファ（???系・Sランク）</h3>
-  <div class="chart"><pre class="mermaid">
-flowchart TD
-  JC["邪神の子(悪魔系・Sランク)"] --> NZ["邪神ニズゼルファ(???系・Sランク)"]
-  NG["冥獣王ネルゲル(???系・Sランク)"] --> NZ
-  </pre></div>
-
   <div class="legend">
     <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
     <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
@@ -79,35 +52,68 @@ flowchart TD
     <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
   </div>
 
-  <div class="todo">
-    <strong>次のPRで展開する枝（調査済みの暫定ルート・gameludens由来は要ゲームウィズ照合）</strong>
-    ・キングヒドラ枝：やまたのおろち ＝ ガメゴンロード × だいおうガマ／クラーゴン ＝ ソードイド × だいおうイカ（だいおうガマ・ソードイドは既に訂正済み。ガメゴンロード・だいおうイカはこれから照合）<br>
-    ・シドー枝：ハーゴン ＝ 4体配合［アトラス ＋ ベリアル ＋ あくましんかん ＋ バズズ］。竜王はダークドレアム図を参照。<br>
-    ・バラモスゾンビ枝：バラモス ＝ まおうのかげ × ボストロール（ボストロールはダークドレアム図参照）／スカルゴン ＝ ドラゴンコープス × ボーンプリズナー<br>
-    ・ニズゼルファ枝：邪神の子 ＝ 大魔王ウルノーガ × ワルぼう／冥獣王ネルゲル ＝ 堕天使エルギオス × 守護者ラズバーン
-  </div>
-
   <div class="rules">
-    <strong>未確定・要精査</strong>
+    <strong>読み方のルール</strong>
     <ul>
-      <li>スカルゴンの入手法：「スカウト（流神殿の魔界上級・晴）」「タマゴ限定」「ドラゴンコープス×ボーンプリズナー配合」で情報が分かれる。展開時に要確認。</li>
-      <li>アルテマ（配合表の第一情報源）が現在自動取得できず、hyperwiki／ゲームエイト／ゲームウィズで代替中。gameludens は誤りが確認された（下記）ため優先度を下げる。</li>
+      <li>通常配合はGランク～Bランクの各36通り（系統ペア）のみ。Aランク以上は必ず特殊配合。</li>
+      <li>青ノートの「通常配合：X系×Y系（Rランク以上）」は、親2体がその系統で、どちらかが指定ランク以上であれば生まれる、という意味。</li>
+      <li>ダークドレアム図に既出のモンスター（竜王・ボストロール・キングリザードなど）は「ダークドレアム図参照」として重複記載しない。</li>
     </ul>
   </div>
 
-  <div class="rules">
-    <strong>訂正</strong>
-    だいおうガマ ＝ フロッガー×うずしおキング、ソードイド ＝ がいこつけんし×ソードファントム（いずれもダークドレアム図と同じ）が正しい。gameludens に記載の「フロッガー×かまいたち」「ボーンナイト×悪魔系」は誤り。やまたのおろち／クラーゴンの展開時はこの2点を踏襲する。
+  <div class="todo">
+    <strong>進捗</strong>
+    キングヒドラ枝は末端まで展開済み。残り3枝（シドー／バラモスゾンビ／邪神ニズゼルファ）は今後のPRでタブを追加して順次展開します。
   </div>
 
   <div class="rules">
     <strong>出典</strong>
     <ul>
-      <li>ゲームウィズ DQM3（系統・ランク・配合。今回の照合で誤りなし、優先ソース）</li>
-      <li>hyperWiki DQM3（配合レシピが構造化されている）</li>
-      <li>ゲームエイト DQM3</li>
-      <li>gameludens（多段の配合チェーンが読みやすいが、一部誤りを確認済み。単独ソースの場合は要クロスチェック）</li>
+      <li>ゲームウィズ DQM3（系統・ランク・配合。優先ソース）</li>
+      <li>hyperWiki DQM3 ／ ゲームエイト DQM3</li>
+      <li>gameludens（多段の配合チェーンが読みやすいが誤りを確認済み。単独では採用しない）</li>
     </ul>
+  </div>
+</section>
+
+<section class="panel" id="kinghydra">
+  <h2>キングヒドラ（ドラゴン系・Aランク）</h2>
+  <p class="note">ゾーマの4体配合素材の1体。通常配合では作れず特殊配合のみ。この枝は末端（通常配合／ダークドレアム図参照）まで分解済み。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  YO["やまたのおろち(ドラゴン系・Bランク)"] --> KH["キングヒドラ(ドラゴン系・Aランク)"]
+  CL["クラーゴン(自然系・Aランク)"] --> KH
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class KH goal
+  </pre></div>
+
+  <h3>やまたのおろち（ドラゴン系・Bランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GL["ガメゴンロード(ドラゴン系・Cランク)"] --> YO["やまたのおろち(ドラゴン系・Bランク)"]
+  DL["ダースリカント(Bランク)<br/>通常配合:魔獣系×ゾンビ系(B以上)"] --> YO
+  GM["ガメゴン(Eランク)<br/>通常配合:ドラゴン系×スライム系(E以上)"] --> GL
+  DG["だいおうガマ(Cランク)<br/>ラーミアタブ参照"] --> GL
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DL,GM base
+  </pre></div>
+
+  <h3>クラーゴン（自然系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SI["ソードイド(Bランク)<br/>ラーミアタブ参照"] --> CL["クラーゴン(自然系・Aランク)"]
+  DI["だいおうイカ(自然系・Cランク)"] --> CL
+  TM["タコメット(Eランク)<br/>通常配合:自然系×悪魔系(E以上)"] --> DI
+  KL["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> DI
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class TM,KL base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    だいおうガマ・ソードイドはダークドレアム図のラーミアタブで既に末端（通常配合・スカウト）まで分解済みのため、この図では再掲していません。
   </div>
 </section>
 
