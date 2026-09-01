@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神さま 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>神さま <em>Xランク</em></h1>
+    <p class="lede">2体配合。スライムエンペラー×オルゴデミーラ。ダークドレアムの素材にもなります。タマゴ限定は1箇所（ピサロのてさき）。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">スライムエンペラー×オルゴデミーラの2体配合。オルゴデミーラ側のワイトキングだけが「ピサロのてさき（銀タマゴ限定）」を必要とし、ここが唯一の詰まりどころです。ダークドレアム図の神さまタブでも同じ内容を使用しています（<a href="darkdream.html#kamisama">神さまタブへ</a>）。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SE["スライムエンペラー(Aランク)"] --> KS["神さま(Xランク)"]
+  OD["オルゴデミーラ(Sランク)"] --> KS
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class KS goal
+  </pre></div>
+
+  <h3>スライムエンペラー（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  CS["クリスタルスライム(Bランク)"] --> SE["スライムエンペラー(Aランク)"]
+  GR["ゴッドライダー(Aランク)"] --> SE
+  MK["メタルキング(Bランク)<br/>スカウト:各地上級/メダル交換<br/>配合:はぐれメタル×はぐれメタル"] --> CS
+  OH["おどるほうせき(Eランク)<br/>通常配合:物質系×スライム系(E以上)"] --> CS
+  SJ["スライムジェネラル(Bランク)<br/>通常配合:スライム系×魔獣系(B以上)"] --> GR
+  MS["マスタースライム(Aランク)"] --> GR
+  SF["スライムファング(Dランク)<br/>通常配合:スライム系×魔獣系(D以上)"] --> MS
+  MO["モヒカント(Bランク)<br/>通常配合:魔獣系×物質系(B以上)"] --> MS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MK,OH,SJ,SF,MO base
+  </pre></div>
+
+  <h3>オルゴデミーラ（Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  NK["ナイトキング(Aランク)"] --> OD["オルゴデミーラ(Sランク)"]
+  NG["ネンガル(Aランク)"] --> OD
+  DM["ダンビラムーチョ(Cランク)<br/>通常配合:魔獣系×悪魔系(C以上)"] --> NG
+  SM["サタンメイル(Bランク)<br/>通常配合:物質系×悪魔系(B以上)"] --> NG
+  WK["ワイトキング(Bランク)"] --> NK
+  NR["ナイトリッチ(Cランク)"] --> NK
+  GK["がいこつけんし(Dランク)<br/>しりょうのきし×しりょうのきし"] --> NR
+  PN["ピサロナイト(Cランク)"] --> NR
+  BN["ボーンナイト(Dランク)<br/>通常配合:ゾンビ系×魔獣系(D以上)"] --> PN
+  SY["さまようよろい(Fランク)<br/>デスタムーアタブ参照"] --> PN
+  SL["しりょうのきし(Eランク)<br/>通常配合:ゾンビ系×悪魔系(E以上)"] --> GK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DM,SM,BN,SL base
+  click SY href "darkdream.html#destamoor" "デスタムーアタブへ"
+  </pre></div>
+
+  <h3>ワイトキング（Bランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  NG2["なげきの亡霊(Dランク)"] --> WK["ワイトキング(Bランク)"]
+  TK["タールキング(Bランク)<br/>通常配合:スライム系×悪魔系(B以上)<br/>スカウト:強敵"] --> WK
+  PT["ピサロのてさき<br/>銀タマゴ限定・配合/スカウト不可"] --> NG2
+  SD["しのどれい(Eランク)"] --> NG2
+  MI["ミイラおとこ(Fランク)"] --> SD
+  SR["スカルライダー(Fランク)<br/>通常配合:ゾンビ系×ドラゴン系(F以上)"] --> SD
+  KH["くみひもこぞう(Gランク)<br/>わらいぶくろ×シールドこぞう"] --> MI
+  KS2["くさった死体(Fランク)<br/>通常配合:ゾンビ系×魔獣系(F以上)"] --> MI
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class TK,SR,KS2 base
+  class PT egg
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <div class="todo">
+    <strong>ボトルネック</strong>
+    ワイトキングには通常配合ルートが存在せず、ピサロのてさき（銀タマゴ限定）が必須。神さま作成の実質的な律速はここなので、タマゴ周回を先に走らせておくのが効率的です。
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  神さま 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script src="../assets/tabs.js"></script>
+
+</body>
+</html>

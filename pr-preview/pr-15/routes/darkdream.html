@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダークドレアム 配合ルート図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#panels">本文へスキップ</a>
+
+<header class="page-head compact">
+  <div class="wrap">
+    <a class="backlink" href="../index.html">一覧へ戻る</a>
+    <h1>ダークドレアム <em>Xランク</em></h1>
+    <p class="lede">4体配合。全ノードを通常配合（系統×系統＋ランク条件）／スカウト／タマゴ限定まで分解。タブで各ルートを切り替えます。</p>
+  </div>
+</header>
+
+<div class="wrap" id="panels">
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-target="overview">全体図</button>
+    <button role="tab" aria-selected="false" data-target="ryujinou">竜神王</button>
+    <button role="tab" aria-selected="false" data-target="destamoor">デスタムーア</button>
+    <button role="tab" aria-selected="false" data-target="lamia">ラーミア</button>
+    <button role="tab" aria-selected="false" data-target="kamisama">神さま</button>
+    <button role="tab" aria-selected="false" data-target="shinryu">しんりゅう</button>
+  </nav>
+
+  <main>
+
+<section class="panel" id="overview" data-active="true">
+  <h2>全体図</h2>
+  <p class="note">ダークドレアムは4体配合。祖父母4体を「デスタムーア×ラーミア」「神さま×竜神王」の2ペアで両親にすると、孫としてダークドレアムが生まれます。両親の系統は問いません。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DS["デスタムーア(Sランク)"] --> PA["親A(系統自由)"]
+  LM["ラーミア(Xランク)"] --> PA
+  KS["神さま(Xランク)"] --> PB["親B(系統自由)"]
+  RJ["竜神王(Xランク)※達成済"] --> PB
+  PA --> DD["ダークドレアム(Xランク)"]
+  PB --> DD
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class DD goal
+  </pre></div>
+
+  <h3>タマゴ限定のボトルネック（2箇所）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SK["スカイドラゴン(Fランク)<br/>白・銀タマゴ限定"] --> SD["スノードラゴン(Dランク)"]
+  SD --> SA["サラマンダー(Aランク)"]
+  SA --> SR["しんりゅう(Xランク)"]
+  SR --> LM2["ラーミア(Xランク)"]
+  PT["ピサロのてさき<br/>銀タマゴ限定"] --> NG["なげきの亡霊"]
+  NG --> WK["ワイトキング(Bランク)"]
+  WK --> NK["ナイトキング(Aランク)"]
+  NK --> OD["オルゴデミーラ(Sランク)"]
+  OD --> KS2["神さま(Xランク)"]
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class SK,PT egg
+  </pre></div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:#ffd700"></i>最終目標</span>
+    <span><i class="swatch" style="background:#cfe8ff"></i>通常配合で作れる終端（通常配合が存在しない場合はスカウト終端）</span>
+    <span><i class="swatch" style="background:#ffd6d6"></i>タマゴ限定・配合で到達不可</span>
+    <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
+  </div>
+
+  <div class="rules">
+    <strong>読み方のルール</strong>
+    <ul>
+      <li>通常配合はGランク～Bランクの各36通り（系統ペア）のみ。Aランク以上は必ず特殊配合。</li>
+      <li>青ノートの「通常配合：X系×Y系（Rランク以上）」は、親2体がその系統で、どちらかが指定ランク以上であれば生まれる、という意味。</li>
+      <li>通常配合ルートがある場合は、スカウト可能でも通常配合を終端として記載（スカウト場所は補足）。</li>
+      <li>通常配合が存在しないモンスターは、スカウト可能ならスカウトを終端とし、不可なら特殊配合を辿り続ける。</li>
+      <li>ランクは図鑑No.の並び（系統→ランク昇順→50音順）と各サイトの記載を突き合わせて全件確定済み。</li>
+    </ul>
+  </div>
+
+  <div class="todo">
+    <strong>前バージョンからの主な訂正</strong>
+    ・キラージャック／ホラービースト／れんごく天馬／アカイライ／バトルレックス などは通常配合（Bランク）で作れるため終端化。<br>
+    ・ムドー系のドルマージュ（マネマネ＝タマゴ限定）は不要。ホラービーストが通常配合で作れるため回避可能。<br>
+    ・ダンビラムーチョは「魔獣系×悪魔系」、サタンメイルは「物質系×悪魔系」、ナイトリッチ・トロルボンバー・サイレスは通常配合ではなく特殊配合。<br>
+    ・シャンタクの素材は「キングリザード×ヘルコンドル」（ヘルダイバーではない）。
+  </div>
+</section>
+
+<section class="panel" id="ryujinou">
+  <h2>竜神王（Xランク）</h2>
+  <p class="note">達成済みのルートです。ここで作る「ドラゴン」「ひかりの番人」はラーミアタブ（てんのもんばん）でも再度必要になります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  RY["竜王(Sランク)"] --> RJ["竜神王(Xランク)"]
+  HB["ひかりの番人(Aランク)"] --> RJ
+  RO["りゅうおう(Aランク)"] --> RY
+  DD2["ダースドラゴン(Aランク)"] --> RY
+  DR["ドラゴン(Eランク)"] --> HB
+  FS["ふうらいスライム(Bランク)<br/>通常配合:スライム系×ドラゴン系(B以上)<br/>スカウト:強敵"] --> HB
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class RJ goal
+  class FS base
+  </pre></div>
+
+  <h3>りゅうおう（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SK["しにがみのきし(Aランク)"] --> RO["りゅうおう(Aランク)"]
+  ST["スターキメラ(Bランク)<br/>通常配合:自然系×悪魔系(B以上)"] --> RO
+  YK["よろいのきし(Dランク)<br/>通常配合:悪魔系×物質系(D以上)"] --> SK
+  SG["しにがみきぞく(Bランク)<br/>通常配合:ゾンビ系×魔獣系(B以上)"] --> SK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class ST,YK,SG base
+  </pre></div>
+
+  <h3>ダースドラゴン（Aランク）＝ ドラゴン × ゴーレム</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DR["ドラゴン(Eランク)<br/>スカウト:煉獄峠初級※強敵<br/>配合:ドラゴンキッズ×グリズリー"] --> DD2["ダースドラゴン(Aランク)"]
+  GO["ゴーレム(Bランク)"] --> DD2
+  SH["スノーホムンクルス(Bランク)<br/>通常配合:物質系×自然系(B以上)"] --> GO
+  SM["ストーンマン(Dランク)"] --> GO
+  CG["チョコゴーレム(Fランク)"] --> SM
+  SS["ストーンスライム(Eランク)<br/>通常配合:スライム系×物質系(E以上)"] --> SM
+  SC["スライムコロネ(Gランク)<br/>スカウト:甘味楼初級・中級"] --> CG
+  DN["どろにんぎょう(Gランク)"] --> CG
+  NB["ナスビナーラ(Gランク)<br/>スカウト:人間界(秋)/覇王城初級(秋)"] --> DN
+  DZ["ドロザラー(Gランク)<br/>通常配合:物質系×ゾンビ系(G以上)"] --> DN
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DR,SH,SS,SC,NB,DZ base
+  </pre></div>
+
+  <h3>ドラゴン（Eランク）を配合で作る場合</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DK["ドラゴンキッズ(Gランク)<br/>通常配合:ドラゴン系×スライム系(G以上)"] --> DR["ドラゴン(Eランク)"]
+  GZ["グリズリー(Eランク)<br/>スカウト:覇王城中級(春・冬/赤い月)"] --> DR
+  AB["アントベア(Gランク)<br/>スカウト:人間界(冬)/覇王城初級(冬)"] --> GZ
+  OG["オーガー(Eランク)"] --> GZ
+  LS["ランドセーラー(Fランク)<br/>通常配合:悪魔系×物質系(F以上)"] --> OG
+  GR["ごろつき(Fランク)"] --> OG
+  OK["おおきづち(Gランク)"] --> GR
+  IM["いたずらもぐら(Gランク)<br/>通常配合:魔獣系×物質系(G以上)"] --> GR
+  IM --> OK
+  KO["きりかぶおばけ(Gランク)<br/>通常配合:自然系×ゾンビ系(G以上)"] --> OK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DK,GZ,AB,LS,IM,KO base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    ドラゴン・グリズリー・アントベアはいずれもスカウト可能。スカウトで済ませれば下の枝は不要です。
+  </div>
+</section>
+
+<section class="panel" id="destamoor">
+  <h2>デスタムーア（Sランク）</h2>
+  <p class="note">4体配合。「バトルレックス×キラーマジンガ」「トロルボンバー×ムドー」の2ペアで両親を作ります。タマゴ限定モンスターは不要で、全てが通常配合／スカウトに帰着します。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BR["バトルレックス(Bランク)<br/>通常配合:ドラゴン系×魔獣系(B以上)<br/>スカウト:甘味楼初級(冬)/煉獄峠中上級(冬・猛吹雪)"] --> PA["親A"]
+  KM["キラーマジンガ(Sランク)"] --> PA
+  TB["トロルボンバー(Bランク)"] --> PB["親B"]
+  MD["ムドー(Sランク)"] --> PB
+  PA --> DS["デスタムーア(Sランク)"]
+  PB --> DS
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DS goal
+  class BR base
+  </pre></div>
+
+  <h3>ムドー（Sランク）— 最短枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  HB["ホラービースト(Bランク)<br/>通常配合:悪魔系×魔獣系(B以上)"] --> MD["ムドー(Sランク)"]
+  HC["ヘルクラッシャー(Aランク)"] --> MD
+  MT["まおうのつかい(Bランク)<br/>通常配合:ゾンビ系×悪魔系(B以上)"] --> HC
+  KJ["キラージャック(Bランク)<br/>通常配合:悪魔系×ゾンビ系(B以上)"] --> HC
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class HB,MT,KJ base
+  </pre></div>
+
+  <h3>トロルボンバー（Bランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  BS["ボストロール(Dランク)<br/>4体配合"] --> TB["トロルボンバー(Bランク)<br/>スカウト:強敵"]
+  BL["バルンバ(Cランク)<br/>通常配合:ドラゴン系×スライム系(C以上)"] --> TB
+  CY["サイクロプス(Eランク)<br/>スカウト:強敵"] --> P1["親1"]
+  TD["トドマン(Dランク)<br/>通常配合:自然系×魔獣系(D以上)"] --> P1
+  CY2["サイクロプス(2体目)"] --> P2["親2"]
+  TD2["トドマン(2体目)"] --> P2
+  P1 --> BS
+  P2 --> BS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class BL,CY,TD,CY2,TD2 base
+  </pre></div>
+
+  <h3>キラーマジンガ（Sランク）— キラーマシン系</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SKM["Sキラーマシン(Aランク)"] --> KM["キラーマジンガ(Sランク)"]
+  LA["ランドアーマー(Bランク)<br/>通常配合:ドラゴン系×物質系(B以上)"] --> KM
+  KM2["キラーマシン2(Aランク)"] --> SKM
+  DU["デュランダル(Bランク)"] --> SKM
+  KMA["キラーマシン(Dランク)<br/>4体配合"] --> KM2
+  KJ["キラージャック(Bランク)<br/>通常配合:悪魔系×ゾンビ系(B以上)"] --> KM2
+  KMA --> DU
+  KD["からくりだいみょう(Bランク)"] --> DU
+  GB["グレイトボンバー(Bランク)<br/>通常配合:物質系×スライム系(B以上)"] --> KD
+  TY["たけやりへい(Gランク)"] --> KD
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class LA,KJ,GB base
+  </pre></div>
+
+  <h3>キラーマシン（4体配合）と共通素材</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  MH["メタルハンター(Fランク)<br/>さまようよろい×物質系"] --> PA["親A"]
+  GK["がいこつけんし(Dランク)<br/>しりょうのきし×しりょうのきし"] --> PA
+  MH2["メタルハンター(2体目)"] --> PB["親B"]
+  YK["よろいのきし(Dランク)<br/>通常配合:悪魔系×物質系(D以上)"] --> PB
+  PA --> KMA["キラーマシン(Dランク)"]
+  PB --> KMA
+  SR["しりょうのきし(Eランク)<br/>通常配合:ゾンビ系×悪魔系(E以上)"] --> GK
+  SY["さまようよろい(Fランク)"] --> MH
+  TY["たけやりへい(Gランク)"] --> SY
+  SN["スライムナイト(Fランク)"] --> SY
+  KH["くみひもこぞう(Gランク)"] --> TY
+  KE["からくりエッグ(Gランク)<br/>通常配合:物質系×魔獣系(G以上)"] --> TY
+  WB["わらいぶくろ(Gランク)<br/>通常配合:物質系×スライム系(G以上)"] --> KH
+  SK["シールドこぞう(Gランク)<br/>通常配合:悪魔系×物質系(G以上)"] --> KH
+  SK --> SN
+  ST["スライムタワー(Fランク)<br/>通常配合:スライム系×物質系(F以上)"] --> SN
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class YK,SR,KE,WB,SK,ST base
+  </pre></div>
+
+  <div class="todo">
+    <strong>注意</strong>
+    キラーマシンは4体配合で、メタルハンターが2体必要（＝さまようよろいも2体）。さまようよろいは鉄鋼砦初級でのスカウト報告もあるので、先にスカウトを試すのが早いです。
+  </div>
+</section>
+
+<section class="panel" id="lamia">
+  <h2>ラーミア（Xランク）</h2>
+  <p class="note">4体配合。「しんりゅう×てんのもんばん」「ほうおう×わたぼう」の2ペア。しんりゅうは専用タブ参照。しんりゅう経由でスカイドラゴン（タマゴ限定）が必要になります。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SR["しんりゅう(Xランク)<br/>しんりゅうタブ参照"] --> PA["親A"]
+  TM["てんのもんばん(Aランク)"] --> PA
+  HO["ほうおう(Aランク)"] --> PB["親B"]
+  WT["わたぼう(Sランク)<br/>スカウト:覇王城上級/竜の首/<br/>エビルプリーストの隠れ家/結界のほこら"] --> PB
+  PA --> LM["ラーミア(Xランク)"]
+  PB --> LM
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class LM goal
+  class WT base
+  click SR href "#shinryu" "しんりゅうタブへ"
+  </pre></div>
+
+  <h3>てんのもんばん（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  US["うごくせきぞう(Cランク)"] --> TM["てんのもんばん(Aランク)"]
+  HB["ひかりの番人(Aランク)<br/>ドラゴン×ふうらいスライム<br/>竜神王タブ参照"] --> TM
+  SM["ストーンマン(Dランク)<br/>チョコゴーレム×ストーンスライム<br/>竜神王タブ参照"] --> US
+  KK["くものきょじん(Fランク)"] --> US
+  GZ["ギズモ(Gランク)<br/>通常配合:物質系×自然系(G以上)"] --> KK
+  BS["びっくりサタン(Fランク)<br/>通常配合:悪魔系×ゾンビ系(F以上)"] --> KK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class GZ,BS base
+  click HB href "#ryujinou" "竜神王タブへ"
+  click SM href "#ryujinou" "竜神王タブへ"
+  </pre></div>
+
+  <h3>ほうおう（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  AK["アカイライ(Bランク)<br/>通常配合:自然系×ゾンビ系(B以上)"] --> HO["ほうおう(Aランク)"]
+  AZ["アンズー(Cランク)"] --> HO
+  HC["ヘルコンドル(Dランク)"] --> AZ
+  SA["サイレス(Dランク)"] --> AZ
+  GA["ガルーダ(Fランク)<br/>スカウト:流神殿初級(秋)/中級(砂嵐)"] --> HC
+  HD["ヘルダイバー(Dランク)<br/>通常配合:ドラゴン系×ゾンビ系(D以上)"] --> HC
+  SD["シルバーデビル(Dランク)<br/>通常配合:悪魔系×魔獣系(D以上)"] --> SA
+  KI["キメラ(Eランク)<br/>通常配合:自然系×ドラゴン系(E以上)"] --> SA
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class AK,GA,HD,SD,KI base
+  </pre></div>
+
+  <h3>わたぼう（Sランク）を配合で作る場合</h3>
+  <p class="note">にじくじゃくは4体配合（祖父母4体：ひくいどり・ほうおう・ホークブリザード・ロックちょう、両親のペアリングは自由）。</p>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  NK["にじくじゃく(Sランク)"] --> WT["わたぼう(Sランク)"]
+  RB["ロイヤルブルーム(Sランク)"] --> WT
+  HK["ひくいどり(Bランク)<br/>通常配合:自然系×ドラゴン系(B以上)"] --> PA2["親A(系統自由)"]
+  HO["ほうおう(Aランク)<br/>上記参照"] --> PA2
+  HB2["ホークブリザード(Bランク)<br/>特殊配合:アンズー×ブリザードマン"] --> PB2["親B(系統自由)"]
+  RC["ロックちょう(Bランク)<br/>通常配合:自然系×物質系(B以上)"] --> PB2
+  PA2 --> NK
+  PB2 --> NK
+  AZ2["アンズー(Cランク)<br/>上記参照"] --> HB2
+  BM["ブリザードマン(Cランク)<br/>特殊配合:ブリザード×ベレス"] --> HB2
+  BZ["ブリザード(Dランク)<br/>通常配合:物質系×ゾンビ系(D以上)"] --> BM
+  BR["ベレス(Eランク)<br/>通常配合:悪魔系×ドラゴン系(E以上)"] --> BM
+  RZ["ローズバトラー(Aランク)"] --> RB
+  WL["ホエールロード(Aランク)"] --> RB
+  SI["ソードイド(Bランク)"] --> RZ
+  IB["いばらドラゴン(Gランク)<br/>通常配合:ドラゴン系×自然系(G以上)"] --> RZ
+  GK["がいこつけんし(Dランク)<br/>しりょうのきし×しりょうのきし"] --> SI
+  SF["ソードファントム(Cランク)<br/>通常配合:ゾンビ系×物質系(C以上)"] --> SI
+  WM["ホエールマージ(Bランク)"] --> WL
+  TK["タールキング(Bランク)<br/>通常配合:スライム系×悪魔系(B以上)<br/>スカウト:強敵"] --> WL
+  DG["だいおうガマ(Cランク)"] --> WM
+  DP["ダークペルシャ(Bランク)<br/>通常配合:魔獣系×スライム系(B以上)"] --> WM
+  FR["フロッガー(Gランク)<br/>スカウト:覇王城初級(秋)"] --> DG
+  UK["うずしおキング(Dランク)"] --> DG
+  KA["かまいたち(Fランク)<br/>通常配合:自然系×悪魔系(F以上)"] --> UK
+  GM["ガメゴン(Eランク)<br/>通常配合:ドラゴン系×スライム系(E以上)"] --> UK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class HK,IB,SF,TK,DP,FR,KA,GM,RC,BZ,BR base
+  </pre></div>
+
+  <div class="todo">
+    <strong>補足</strong>
+    わたぼうは4箇所でスカウト可能。配合ルートはロイヤルブルーム側が非常に長いので、実際はスカウト推奨。
+  </div>
+</section>
+
+<section class="panel" id="kamisama">
+  <h2>神さま（Xランク）</h2>
+  <p class="note">スライムエンペラー×オルゴデミーラの2体配合。オルゴデミーラ側のワイトキングだけが「ピサロのてさき（銀タマゴ限定）」を必要とし、ここが唯一の詰まりどころです。独立ページとしても公開しています（<a href="kamisama.html">神さま単独ページへ</a>）。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SE["スライムエンペラー(Aランク)"] --> KS["神さま(Xランク)"]
+  OD["オルゴデミーラ(Sランク)"] --> KS
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class KS goal
+  </pre></div>
+
+  <h3>スライムエンペラー（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  CS["クリスタルスライム(Bランク)"] --> SE["スライムエンペラー(Aランク)"]
+  GR["ゴッドライダー(Aランク)"] --> SE
+  MK["メタルキング(Bランク)<br/>スカウト:各地上級/メダル交換<br/>配合:はぐれメタル×はぐれメタル"] --> CS
+  OH["おどるほうせき(Eランク)<br/>通常配合:物質系×スライム系(E以上)"] --> CS
+  SJ["スライムジェネラル(Bランク)<br/>通常配合:スライム系×魔獣系(B以上)"] --> GR
+  MS["マスタースライム(Aランク)"] --> GR
+  SF["スライムファング(Dランク)<br/>通常配合:スライム系×魔獣系(D以上)"] --> MS
+  MO["モヒカント(Bランク)<br/>通常配合:魔獣系×物質系(B以上)"] --> MS
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MK,OH,SJ,SF,MO base
+  </pre></div>
+
+  <h3>オルゴデミーラ（Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  NK["ナイトキング(Aランク)"] --> OD["オルゴデミーラ(Sランク)"]
+  NG["ネンガル(Aランク)"] --> OD
+  DM["ダンビラムーチョ(Cランク)<br/>通常配合:魔獣系×悪魔系(C以上)"] --> NG
+  SM["サタンメイル(Bランク)<br/>通常配合:物質系×悪魔系(B以上)"] --> NG
+  WK["ワイトキング(Bランク)"] --> NK
+  NR["ナイトリッチ(Cランク)"] --> NK
+  GK["がいこつけんし(Dランク)<br/>しりょうのきし×しりょうのきし"] --> NR
+  PN["ピサロナイト(Cランク)"] --> NR
+  BN["ボーンナイト(Dランク)<br/>通常配合:ゾンビ系×魔獣系(D以上)"] --> PN
+  SY["さまようよろい(Fランク)<br/>デスタムーアタブ参照"] --> PN
+  SL["しりょうのきし(Eランク)<br/>通常配合:ゾンビ系×悪魔系(E以上)"] --> GK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class DM,SM,BN,SL base
+  click SY href "#destamoor" "デスタムーアタブへ"
+  </pre></div>
+
+  <h3>ワイトキング（Bランク）— タマゴ限定を含む枝</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  NG2["なげきの亡霊(Dランク)"] --> WK["ワイトキング(Bランク)"]
+  TK["タールキング(Bランク)<br/>通常配合:スライム系×悪魔系(B以上)<br/>スカウト:強敵"] --> WK
+  PT["ピサロのてさき<br/>銀タマゴ限定・配合/スカウト不可"] --> NG2
+  SD["しのどれい(Eランク)"] --> NG2
+  MI["ミイラおとこ(Fランク)"] --> SD
+  SR["スカルライダー(Fランク)<br/>通常配合:ゾンビ系×ドラゴン系(F以上)"] --> SD
+  KH["くみひもこぞう(Gランク)<br/>わらいぶくろ×シールドこぞう"] --> MI
+  KS["くさった死体(Fランク)<br/>通常配合:ゾンビ系×魔獣系(F以上)"] --> MI
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class TK,SR,KS base
+  class PT egg
+  </pre></div>
+
+  <div class="todo">
+    <strong>ボトルネック</strong>
+    ワイトキングには通常配合ルートが存在せず、ピサロのてさき（銀タマゴ限定）が必須。神さま作成の実質的な律速はここなので、タマゴ周回を先に走らせておくのが効率的です。
+  </div>
+</section>
+
+<section class="panel" id="shinryu">
+  <h2>しんりゅう（Xランク）</h2>
+  <p class="note">ドラゴンアビス×サラマンダーの2体配合。ラーミアの素材にもなります。サラマンダー側でスカイドラゴン（タマゴ限定）が必須です。独立ページとしても公開しています（<a href="shinryu.html">しんりゅう単独ページへ</a>）。</p>
+
+  <h3>全体</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  DA["ドラゴンアビス(Sランク)"] --> SR["しんりゅう(Xランク)"]
+  SA["サラマンダー(Aランク)"] --> SR
+  classDef goal fill:#ffd700,stroke:#c9a000,color:#000
+  class SR goal
+  </pre></div>
+
+  <h3>サラマンダー（Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SD["スノードラゴン(Dランク)"] --> SA["サラマンダー(Aランク)"]
+  RT["れんごく天馬(Bランク)<br/>通常配合:魔獣系×ドラゴン系(B以上)"] --> SA
+  SK["スカイドラゴン(Fランク)<br/>白・銀タマゴ限定"] --> SD
+  SG["せつげんりゅう(Dランク)<br/>通常配合:ドラゴン系×自然系(D以上)"] --> SD
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class RT,SG base
+  class SK egg
+  </pre></div>
+
+  <h3>ドラゴンアビス（Sランク）＝ じげんりゅう × 闇竜バルボロス</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  JG["じげんりゅう(Sランク)"] --> DA["ドラゴンアビス(Sランク)"]
+  YB["闇竜バルボロス(Sランク)"] --> DA
+  SN["シルバーナーガ(Aランク)"] --> JG
+  KY["クームヤーガ(Aランク)"] --> JG
+  CO["コアトル(Cランク)<br/>通常配合:ドラゴン系×ゾンビ系(C以上)"] --> SN
+  MS["メタルスコーピオン(Aランク)"] --> SN
+  SS["さそりアーマー(Cランク)<br/>通常配合:自然系×物質系(C以上)<br/>スカウト:強敵"] --> MS
+  MK["メタルキング(Bランク)<br/>スカウト:各地上級/メダル交換"] --> MS
+  ST["シャンタク(Cランク)"] --> KY
+  RC["ロックちょう(Bランク)<br/>通常配合:自然系×物質系(B以上)"] --> KY
+  KL["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> ST
+  HC["ヘルコンドル(Dランク)<br/>ガルーダ×ヘルダイバー<br/>ラーミアタブ参照"] --> ST
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class CO,SS,MK,RC,KL base
+  click HC href "#lamia" "ラーミアタブへ"
+  </pre></div>
+
+  <h3>闇竜バルボロス（Sランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  GN["グレイナル(Sランク)"] --> YB["闇竜バルボロス(Sランク)"]
+  KR["黒竜丸(Aランク)"] --> YB
+  RT["れんごく天馬(Bランク)<br/>通常配合:魔獣系×ドラゴン系(B以上)"] --> KR
+  BD["ブラックドラゴン(Bランク)<br/>通常配合:ドラゴン系×悪魔系(B以上)"] --> KR
+  GR["ゴッドライダー(Aランク)<br/>神さまタブ参照"] --> GN
+  KD["カイザードラゴン(Aランク)"] --> GN
+  KL["キングリザード(Cランク)<br/>通常配合:ドラゴン系×悪魔系(C以上)"] --> KD
+  GD["グレイトドラゴン(Bランク)"] --> KD
+  AG["アルゴングレート(Dランク)"] --> GD
+  ZS["ずしおうまる(Cランク)<br/>通常配合:悪魔系×ドラゴン系(C以上)"] --> GD
+  GH["ギガントヒルズ(Eランク)<br/>スカウト:流神殿中級(秋/砂嵐)"] --> AG
+  AD["アックスドラゴン(Dランク)<br/>通常配合:ドラゴン系×悪魔系(D以上)"] --> AG
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class RT,BD,KL,ZS,GH,AD base
+  click GR href "#kamisama" "神さまタブへ"
+  </pre></div>
+
+  <div class="todo">
+    <strong>注意</strong>
+    れんごく天馬は黒竜丸とサラマンダーで各1体、計2体必要（配合で素材は消費されます）。ゴッドライダーも神さま用と兼ねるなら2体必要です。
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  ダークドレアム 配合ルート図 ・ <a href="../index.html">ルート一覧</a> ・ 非公式ファンメモ
+</footer>
+
+<script src="../assets/tabs.js"></script>
+
+</body>
+</html>
