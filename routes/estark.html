@@ -18,7 +18,7 @@
   <div class="wrap">
     <a class="backlink" href="../index.html">一覧へ戻る</a>
     <h1>エスターク <em>Xランク</em></h1>
-    <p class="lede">4体配合。枝ごとにタブを分けて段階的に展開しています。デスピサロ（Sランク）はエスターク専用の素材で、単独では目標にしません。</p>
+    <p class="lede">4体配合。枝ごとにタブを分け、末端（通常配合・スカウト・タマゴ限定）まで分解済み。デスピサロ（Sランク）はエスターク専用の素材で、単独では目標にしません。</p>
   </div>
 </header>
 
@@ -58,16 +58,22 @@ flowchart TD
     <span><i class="swatch" style="background:#fff"></i>特殊配合（さらに辿る）</span>
   </div>
 
-  <div class="todo">
-    <strong>進捗</strong>
-    3枝ともタブを作成済みですが、それぞれ2〜3ノードが特殊配合止まりで末端まで未展開です（各タブのTODO参照）。次のPRで閉じます。
-  </div>
+  <h3>タマゴ限定のボトルネック（2箇所）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  KR2["キングレオ(Aランク)<br/>虹タマゴ限定・クリア後に出現"] --> HB2["ヘルバトラー(Aランク)"]
+  HB2 --> DP2["デスピサロ(Sランク)"]
+  DP2 --> ES2["エスターク(Xランク)"]
+  LN2["ライオネック(Bランク)<br/>金タマゴ限定"] --> GM3["ゲマ(Sランク)"]
+  GM3 --> ML4["ミルドラース(Sランク)"]
+  ML4 --> ES2
+  classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
+  class KR2,LN2 egg
+  </pre></div>
 
   <div class="todo">
-    <strong>タマゴ限定のボトルネックを2箇所確認（新しい色＝虹タマゴ）</strong>
-    ・デスピサロ枝：ヘルバトラーの素材「キングレオ」が<strong>虹タマゴ限定</strong>（配合・スカウト不可）。ダークドレアム／ゾーマで見つかった銀・金タマゴとは別の3色目です。<br>
-    ・ミルドラース枝：ゲマの素材「ライオネック」が<strong>金タマゴ限定</strong>（配合・スカウト不可）。ゾーマのカンダタと同じ金タマゴですが別個体です。<br>
-    いずれも代替ルートは見つかりませんでした。
+    <strong>ダークドレアム図・ゾーマ図との違い</strong>
+    エスターク自体のタマゴ限定はここに挙げた2箇所（キングレオ＝虹タマゴ／ライオネック＝金タマゴ）のみで、いずれも回避ルートは見つかりませんでした。<strong>虹タマゴはこのページで初めて確認した色</strong>（既知は銀・金のみ）で、ストーリークリア後に出現するとの報告あり。
   </div>
 
   <div class="rules">
@@ -125,11 +131,11 @@ flowchart TD
   click MS href "shinryu.html#overview" "しんりゅう図へ"
   </pre></div>
 
-  <h3>ヘルバトラー（悪魔系・Aランク）</h3>
+  <h3>ヘルバトラー（悪魔系・Aランク）— タマゴ限定を含む枝</h3>
   <div class="chart"><pre class="mermaid">
 flowchart TD
   AH["アンクルホーン(Cランク)"] --> HB["ヘルバトラー(悪魔系・Aランク)"]
-  KR["キングレオ(魔獣系・Aランク)<br/>虹タマゴ限定・配合/スカウト不可"] --> HB
+  KR["キングレオ(魔獣系・Aランク)<br/>虹タマゴ限定・クリア後に出現<br/>配合/スカウト不可"] --> HB
   TK["てっきゅうまじん(Cランク)<br/>ゾーマ図参照"] --> AH
   SR["サイレス(Dランク)<br/>ラーミアタブ参照"] --> AH
   classDef egg fill:#ffd6d6,stroke:#d96a6a,color:#000
@@ -138,10 +144,25 @@ flowchart TD
   click SR href "darkdream.html#lamia" "ラーミアタブへ"
   </pre></div>
 
-  <div class="todo">
-    <strong>次PRで展開する枝</strong>
-    タイムマスター ＝ ひとつめピエロ × ネクロバルサ／バルザック ＝ おにこんぼう × ベロリンマン（おにこんぼう自体はギガンテス×おにこぞう）
-  </div>
+  <h3>タイムマスター（悪魔系・Cランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OP["ひとつめピエロ(Eランク)<br/>通常配合:悪魔系×自然系(E以上)"] --> TM["タイムマスター(悪魔系・Cランク)"]
+  NB["ネクロバルサ(Cランク)<br/>通常配合:悪魔系×魔獣系(C以上)"] --> TM
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class OP,NB base
+  </pre></div>
+
+  <h3>バルザック（悪魔系・Aランク）</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  OK["おにこんぼう(悪魔系・Bランク)"] --> BZ2["バルザック(悪魔系・Aランク)"]
+  BR["ベロリンマン(Bランク)<br/>スカウト:流神殿上級(星・全季節)"] --> BZ2
+  GT2["ギガンテス(Bランク)<br/>通常配合:悪魔系×自然系(B以上)"] --> OK
+  OZ["おにこぞう(Fランク)<br/>通常配合:悪魔系×ドラゴン系(F以上)"] --> OK
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class BR,GT2,OZ base
+  </pre></div>
 </section>
 
 <section class="panel" id="mildrath">
@@ -192,9 +213,20 @@ flowchart TD
   class RE base
   </pre></div>
 
+  <h3>ビックアイ（魔獣系・Eランク）＝ シーメーダ × 魔獣系</h3>
+  <div class="chart"><pre class="mermaid">
+flowchart TD
+  SM3["シーメーダ(悪魔系・Fランク)"] --> BA["ビックアイ(魔獣系・Eランク)"]
+  JY["魔獣系(任意のモンスター)"] --> BA
+  MD3["メーダ(Gランク)<br/>通常配合:自然系×悪魔系(G以上)"] --> SM3
+  PA6["プチアーノン(Gランク)<br/>通常配合:スライム系×自然系(G以上)"] --> SM3
+  classDef base fill:#cfe8ff,stroke:#4a90d9,color:#000
+  class MD3,PA6 base
+  </pre></div>
+
   <div class="todo">
-    <strong>次PRで展開する枝</strong>
-    ビックアイ ＝ シーメーダ × 魔獣系（シーメーダ自体はメーダ×プチアーノン）
+    <strong>補足</strong>
+    ビックアイの特殊配合はシーメーダ×「魔獣系の任意のモンスター」という緩い条件です。ムーンフェイス自体は既に魔獣系なので、この枝に限れば追加調達は不要な場合もあります。
   </div>
 </section>
 
